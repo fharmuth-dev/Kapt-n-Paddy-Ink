@@ -88,16 +88,20 @@ document.addEventListener("DOMContentLoaded", () => {
       drawLightningTimeline(mid_x + offsetX, mid_y + offsetY, x2, y2, displace / 2);
     }
 
+    // Farbe aus der CSS-Variable lesen, damit sie zentral in der CSS anpassbar bleibt
+    const boltColor = (getComputedStyle(document.documentElement)
+      .getPropertyValue("--electric-border-color") || "#e0a92e").trim();
+
     function render() {
       const r = container.getBoundingClientRect();
       const w = r.width;
       const h = r.height;
 
       ctx.clearRect(0, 0, w + pad * 2, h + pad * 2);
-      ctx.strokeStyle = "#00ffff";
+      ctx.strokeStyle = boltColor;
       ctx.lineWidth = 2.0 + Math.random() * 2.5; 
       ctx.shadowBlur = 16; 
-      ctx.shadowColor = "#00ffff";
+      ctx.shadowColor = boltColor;
 
       const rRad = 20; 
       const corners = [

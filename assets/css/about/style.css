@@ -96,12 +96,12 @@ img.brand-logo,
     overflow: hidden;
 }
 
-.paddy-hero-bg { position: absolute; inset: 0; z-index: 0; }
+.paddy-hero-bg { position: absolute; top: 0; right: 0; bottom: 0; left: 0; inset: 0; z-index: 0; }
 .paddy-hero-bg img { object-position: 50% 20%; }
 
 .paddy-hero-overlay {
     position: absolute;
-    inset: 0;
+    top: 0; right: 0; bottom: 0; left: 0; inset: 0;
     z-index: 2;
     background: linear-gradient(180deg, rgba(8,7,6,.35) 0%, rgba(8,7,6,.25) 35%, rgba(8,7,6,.97) 100%);
 }

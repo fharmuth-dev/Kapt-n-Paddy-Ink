@@ -1,11 +1,12 @@
 :root {
  --bg-pure-white: #000000;
- --accent-red: #da1b1b; 
- --text-dark: #ffffff;
- --text-muted: #aaaaaa;
- --font-headline: 'Rubik Distressed', system-ui, sans-serif;
- --font-body: 'Space Grotesk', sans-serif;
- --electric-border-color: #00ffff; 
+ --accent-red: #c8321e; 
+ --accent-yellow: #e0a92e;
+ --text-dark: #f4edd9;
+ --text-muted: rgba(244, 237, 217, 0.55);
+ --font-headline: 'Bebas Neue', Impact, 'Arial Narrow', system-ui, sans-serif;
+ --font-body: 'Inter', Arial, system-ui, sans-serif;
+ --electric-border-color: #e0a92e; 
 }
 
 * { 
@@ -15,11 +16,21 @@
  -webkit-tap-highlight-color: transparent;
 }
 
+/* Der Blitz-Canvas ragt bewusst über den Rahmen hinaus, damit die Blitze
+   außen überschlagen. Ohne diese Regel erzeugt dieser Überstand auf Handys
+   ein seitliches Verschieben der Seite. overflow-x muss dafür auf html UND
+   body stehen — body allein reicht in den meisten Browsern nicht aus. */
+html {
+ overflow-x: hidden;
+ max-width: 100%;
+}
+
 body {
  background: #000000;
  color: var(--text-dark);
  font-family: var(--font-body);
  overflow-x: hidden;
+ max-width: 100%;
  min-height: 100vh;
  display: flex;
  flex-direction: column;
@@ -135,7 +146,7 @@ body {
 
 .eb-layers {
  position: absolute;
- inset: 0;
+ top: 0; right: 0; bottom: 0; left: 0; inset: 0;
  border-radius: inherit;
  pointer-events: none;
  z-index: 1;
@@ -178,10 +189,11 @@ body {
 
 .num-badge { 
  font-family: var(--font-body); 
- font-weight: 700; 
- color: var(--accent-red); 
- font-size: 0.9rem; 
- letter-spacing: 2px; 
+ font-weight: 900; 
+ color: var(--accent-yellow); 
+ font-size: 0.75rem; 
+ letter-spacing: 0.18em; 
+ text-transform: uppercase;
 }
 
 .back-btn {
@@ -201,8 +213,9 @@ body {
 
 .step-title {
  font-family: var(--font-headline) !important;
- font-size: 3rem;
- line-height: 1.1;
+ font-size: 3.4rem;
+ line-height: 0.92;
+ letter-spacing: 0.01em;
  margin-bottom: 20px;
  text-transform: uppercase;
 }
@@ -393,6 +406,66 @@ textarea.input-field.active-shimmer-line {
  .tab-btn.active {
    color: var(--accent-red) !important;
  }
+}
+
+/* ==========================================================================
+   WAS DANACH PASSIERT — füllt den Raum unter der Karte mit Substanz
+   ========================================================================== */
+.after-send {
+ width: 100%;
+ max-width: 900px;
+ margin: 10px auto 0;
+ padding: 50px 20px 10px;
+ position: relative;
+ z-index: 20;
+}
+
+.after-send-label {
+ display: block;
+ font-family: var(--font-body);
+ font-weight: 900;
+ font-size: 0.7rem;
+ letter-spacing: 0.18em;
+ text-transform: uppercase;
+ color: var(--accent-yellow);
+ margin-bottom: 26px;
+}
+
+.after-send-grid {
+ display: grid;
+ gap: 30px;
+}
+
+.after-send-num {
+ display: block;
+ font-family: var(--font-headline);
+ font-size: 1.6rem;
+ color: rgba(244, 237, 217, 0.35);
+ line-height: 1;
+ margin-bottom: 6px;
+}
+
+.after-send-item h3 {
+ font-family: var(--font-headline);
+ font-size: 1.75rem;
+ line-height: 0.95;
+ text-transform: uppercase;
+ color: var(--text-dark);
+ margin: 0 0 8px;
+ font-weight: 400;
+}
+
+.after-send-item p {
+ font-family: var(--font-body);
+ font-size: 0.92rem;
+ line-height: 1.6;
+ color: var(--text-muted);
+ margin: 0;
+}
+
+@media (min-width: 760px) {
+ .after-send { padding: 80px 20px 20px; }
+ .after-send-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; }
 }
 
 /* ==========================================================================
