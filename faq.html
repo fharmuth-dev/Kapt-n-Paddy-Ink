@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FAQ // Kapt'n Paddy Ink</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- CSS-Dateien -->
+    <link rel="stylesheet" href="assets/css/home/style.css">
+    <link rel="stylesheet" href="assets/css/faq/style.css">
+    <!-- GSAP Kernbibliothek & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <!-- Skripte -->
+    <script src="assets/js/home/script.js" defer></script>
+    <script src="assets/js/faq/script.js" defer></script>
+</head>
+<body class="preloader-active faq-page">
+
+    <!-- SMART PRELOADER -->
+    <div id="smart-preloader">
+        <div class="preloader-content">
+            <div class="spinner-box">
+                <div class="configure-border-1"><div class="configure-core"></div></div>
+                <div class="configure-border-2"><div class="configure-core"></div></div>
+            </div>
+            <div class="preloader-text">Lade Inhalte...</div>
+        </div>
+    </div>
+
+    <!-- BACKGROUND NOISE -->
+    <div class="page-noise"></div>
+    <div class="cursor"></div>
+
+    <!-- HEADER / BRAND (Jetzt mit Logo-Bild und korrekter Vibe-Check Verlinkung) -->
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <img src="images/logo.png" alt="Kapt'n Paddy Logo" class="brand-logo">
+        </a>
+        <!-- Desktop-Navigation -->
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="works.html">Works</a>
+            <a href="atelier.html">Atelier</a>
+            <a href="about.html">Paddy</a>
+            <a href="faq.html" class="active">FAQ</a>
+            <a href="kennenlernen/index.html" class="nav-cta">Vibe Prüfen</a>
+        </nav>
+    </header>
+
+    <!-- MAIN INTERFACE -->
+    <main class="faq-main-content">
+        <!-- INTRO HERO SEKTION -->
+        <section class="section-dark faq-hero">
+            <div class="faq-hero-container">
+                <span class="tiny-label word-reveal">Informationen &amp; Richtlinien</span>
+                <h1 class="hero-title">
+                    <span class="title-row-1 word-reveal">Häufige</span>
+                    <span class="title-row-2 word-reveal">Fragen</span>
+                </h1>
+                <p class="hero-description reveal-text">Hier findest du alle wichtigen Informationen zu den Abläufen im Atelier, der Vorbereitung auf deinen Termin sowie den Richtlinien zur Anzahlung und Nachsorge.</p>
+            </div>
+        </section>
+
+        <!-- AKKORDEON SEKTION -->
+        <section class="section-charcoal faq-accordion-section">
+            <div class="accordion-wrapper">
+                
+                <!-- FAQ Item 1: Altersgrenze -->
+                <div class="accordion-item line-reveal">
+                    <button class="accordion-trigger" aria-expanded="false">
+                        <span class="accordion-title">Wie sieht die Altersgrenze im Atelier aus?</span>
+                        <span class="accordion-icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Ich tätowiere Personen ab 16 Jahren, sofern eine schriftliche Einverständniserklärung der Erziehungsberechtigten vorliegt und mindestens ein Elternteil den Termin begleitet. Ab 18 Jahren ist selbstverständlich keine Einverständniserklärung mehr erforderlich.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2: Anzahlung & Terminabsage -->
+                <div class="accordion-item line-reveal">
+                    <button class="accordion-trigger" aria-expanded="false">
+                        <span class="accordion-title">Wie laufen Anzahlung und Terminabsagen ab?</span>
+                        <span class="accordion-icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Ja, für die Terminreservierung nehme ich eine Anzahlung. Deren Höhe richtet sich individuell nach dem jeweiligen Tattoo-Projekt und wird gemeinsam mit dem Kunden besprochen. In der Regel liegt sie bei etwa 10 bis 20 % des Gesamtpreises. Die Anzahlung wird selbstverständlich mit der Gesamtsumme des Tattoos verrechnet.<br><br>Sollte ein Termin verschoben oder abgesagt werden müssen, ist das grundsätzlich kein Problem. Wichtig ist lediglich, dass du mir rechtzeitig Bescheid gibst – über alles andere kann man offen und unkompliziert sprechen.<br><br>Wer jedoch ohne Absage nicht zum Termin erscheint oder sich trotz Terminvereinbarung nicht mehr meldet, verliert die Anzahlung. In solchen Fällen behalte ich mir außerdem vor, künftig keine weiteren Termine mehr zu vergeben.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3: Das Nachstechen -->
+                <div class="accordion-item line-reveal">
+                    <button class="accordion-trigger" aria-expanded="false">
+                        <span class="accordion-title">Ist das Nachstechen kostenlos?</span>
+                        <span class="accordion-icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Sollte nach dem vollständigen Heilungsprozess an einzelnen Stellen Farbe fehlen, ist ein Nachstechen innerhalb von sechs Monaten kostenfrei möglich. Voraussetzung ist, dass die Pflegehinweise eingehalten wurden und die Heilung nicht durch äußere Einflüsse beeinträchtigt wurde. Werden nachträgliche Änderungen oder Erweiterungen gewünscht oder liegt die Ursache nicht am normalen Heilungsverlauf, können hierfür zusätzliche Kosten entstehen.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4: Vorbereitung & Beratung -->
+                <div class="accordion-item line-reveal">
+                    <button class="accordion-trigger" aria-expanded="false">
+                        <span class="accordion-title">Muss ich perfekt auf den Termin vorbereitet sein?</span>
+                        <span class="accordion-icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Du musst bei mir weder perfekt vorbereitet sein noch schon jede Antwort haben. Das Wichtigste ist, dass du offen bist und Lust hast, gemeinsam etwas zu erschaffen. Den Rest finden wir zusammen heraus. Ich nehme mir die Zeit, dich zu beraten und ehrlich zu sagen, was möglich ist und was vielleicht sogar noch besser funktioniert. Mein Ziel ist nicht, dir einfach ein Tattoo zu stechen. Ich möchte, dass du mit einem richtig guten Gefühl nach Hause gehst und Jahre später immer noch stolz auf deine Entscheidung bist.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5: Nachsorge & Pflege -->
+                <div class="accordion-item line-reveal">
+                    <button class="accordion-trigger" aria-expanded="false">
+                        <span class="accordion-title">Wie funktioniert die Tattoo-Nachsorge und Pflege?</span>
+                        <span class="accordion-icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Direkt nach dem Tätowieren bringe ich einen Suprasorb-Folienverband auf dein frisches Tattoo auf. Diesen solltest du für vier Tage auf der Haut lassen, damit das Tattoo in den ersten Tagen optimal geschützt ist. Nach vier Tagen entfernst du die Folie vorsichtig und wäschst das Tattoo mit lauwarmem Wasser und einer pH-neutralen Seife. Anschließend tupfst du die Stelle mit sauberem Küchenpapier vorsichtig trocken – bitte nicht rubbeln.<br><br>Danach trägst du eine dünne Schicht Hustle Butter auf. Weniger ist mehr – das Tattoo soll gepflegt sein, aber nicht unter einer dicken Cremeschicht liegen. Die Pflege wiederholst du anschließend mehrmals täglich, sobald sich die Haut trocken anfühlt. Während der Heilungszeit solltest du auf Schwimmbad, Sauna, Solarium, direkte Sonneneinstrahlung und starkes Schwitzen möglichst verzichten. Bitte nicht kratzen oder Hautschüppchen abziehen, gib deinem Körper die Zeit, das Tattoo in Ruhe heilen zu lassen. Solltest du während der Heilung Fragen haben oder dir etwas komisch vorkommen, melde dich jederzeit bei mir.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6: Eigene Motive & Vorlagen -->
+                <div class="accordion-item line-reveal">
+                    <button class="accordion-trigger" aria-expanded="false">
+                        <span class="accordion-title">Stichst du auch fremde Vorlagen oder Kopien?</span>
+                        <span class="accordion-icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Ich liebe Projekte, bei denen man gemeinsam Ideen entwickelt und nicht einfach nur eine Vorlage kopiert. Genau daraus entstehen oft die Tattoos, auf die ich Jahre später selbst noch stolz bin. Ob klein oder groß, spielt für mich keine Rolle. Wichtig ist, dass das Tattoo für den Menschen eine Bedeutung hat und wir gemeinsam etwas erschaffen, das wirklich einzigartig ist. Ich lehne Projekte ab, hinter denen ich selbst nicht stehen kann. Wenn ich merke, dass ein Motiv nur eine spontane Idee ist, keine Bedeutung hat oder ich das Gefühl habe, dass es nicht zu der Person passt, spreche ich das offen an. Ehrlichkeit ist mir wichtiger, als einfach jeden Auftrag anzunehmen. Außerdem möchte ich keine Motive tätowieren, die Hass, Gewalt oder Menschenverachtung ausdrücken.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 7: Ablauf & Kennenlernen -->
+                <div class="accordion-item line-reveal">
+                    <button class="accordion-trigger" aria-expanded="false">
+                        <span class="accordion-title">Wie läuft der Entstehungsprozess meines Tattoos ab?</span>
+                        <span class="accordion-icon"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Bei mir beginnt ein Tattoo nicht mit der Nadel, sondern mit dem Kennenlernen. Je nach Projekt treffen wir uns auch mal ganz entspannt auf einen Kaffee oder in einer Bar. Mir ist wichtig zu verstehen, wer du bist, was hinter deiner Idee steckt und ob wir menschlich zusammenpassen. Daraus entstehen oft die besten Motive. Nach unserem Gespräch entwickle ich dein Tattoo. Kurz vor dem Termin gehen wir den Entwurf gemeinsam durch und passen, wenn nötig, noch Kleinigkeiten an. Bei größeren Projekten kann es auch sein, dass wir uns vorher noch ein zweites Mal treffen. Für mich gehört das alles dazu. Arbeit und echtes Leben sind für mich keine Gegensätze. Ich möchte, dass du der ganze Weg zum Tattoo eine gute Zeit ist und nicht nur die Stunden, in denen tätowiert wird.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FOOTER (Jetzt sicher im Main-Content-Fluss integriert) -->
+        <footer class="footer">
+            <div>&copy; 2026 Kapt'n Paddy Ink. Alle Rechte vorbehalten.</div>
+            <nav>
+                <a href="kennenlernen/index.html">Kontakt</a>
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+            </nav>
+        </footer>
+    </main>
+
+    <!-- FIXED BOTTOM BAR FÜR MOBILGERÄTE -->
+    <div class="mobile-nav-bar">
+        <a href="index.html">Home</a>
+        <a href="works.html">Works</a>
+        <a href="atelier.html">Atelier</a>
+        <a href="about.html">Paddy</a>
+        <a href="faq.html" class="active">FAQ</a>
+        <a href="kennenlernen/index.html">Vibe Prüfen</a>
+    </div>
+
+</body>
+</html>

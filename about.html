@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kapt'n Paddy // Kapt'n Paddy Ink</title>
+    <meta name="description" content="Kein sterile Kunstfigur, kein Studio-Boss von der Stange. Lerne Kapt'n Paddy kennen – seine Geschichte, seine Haltung, sein Blick auf Tattoos.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <!-- CSS-Dateien -->
+    <link rel="stylesheet" href="assets/css/home/style.css">
+    <link rel="stylesheet" href="assets/css/about/style.css">
+    <!-- GSAP Kernbibliothek & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <!-- Skripte -->
+    <script src="assets/js/home/script.js" defer></script>
+    <script src="assets/js/about/script.js" defer></script>
+</head>
+<body class="preloader-active about-page">
+
+    <!-- SMART PRELOADER -->
+    <div id="smart-preloader">
+        <div class="preloader-content">
+            <div class="spinner-box">
+                <div class="configure-border-1"><div class="configure-core"></div></div>
+                <div class="configure-border-2"><div class="configure-core"></div></div>
+            </div>
+            <div class="preloader-text">Der Kapt'n legt ab...</div>
+        </div>
+    </div>
+
+    <!-- BACKGROUND NOISE -->
+    <div class="page-noise"></div>
+    <div class="cursor"></div>
+
+    <!-- HEADER / BRAND -->
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <img src="images/logo.png" alt="Kapt'n Paddy Logo" class="brand-logo">
+        </a>
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="works.html">Works</a>
+            <a href="atelier.html">Atelier</a>
+            <a href="about.html" class="active">Paddy</a>
+            <a href="faq.html">FAQ</a>
+            <a href="kennenlernen/index.html" class="nav-cta">Vibe Prüfen</a>
+        </nav>
+    </header>
+
+    <main class="about-main-content">
+
+        <!-- HERO -->
+        <section class="section-dark paddy-hero">
+            <div class="paddy-hero-bg progressive-img-container">
+                <img src="images/paddy-01b.jpg" data-large="images/paddy-01a.jpg" alt="Kapt'n Paddy bei der Arbeit" class="progressive-img">
+                <div class="paddy-hero-overlay"></div>
+            </div>
+            <img src="images/compass.png" alt="" class="paddy-icon icon-compass-hero" aria-hidden="true">
+            <div class="paddy-hero-content">
+                <span class="tiny-label word-reveal">Kein Tätowierer. Ein Kapt'n.</span>
+                <h1 class="hero-title">
+                    <span class="title-row-1 word-reveal">Kapt'n</span>
+                    <span class="title-row-2 word-reveal">Paddy</span>
+                </h1>
+            </div>
+        </section>
+
+        <!-- INTRO STATEMENT -->
+        <section class="section-cream paddy-statement curtain-reveal-section">
+            <div class="curtain-wiper"></div>
+            <h2 class="line-reveal">Nicht einfach nur<br>ein normaler Tätowierer.</h2>
+            <p class="reveal-text">Es gibt Menschen, die einen Job machen. Und es gibt Menschen, die einfach sind, wer sie sind – und das zufällig zum Beruf gemacht haben. Paddy gehört zur zweiten Sorte. Für die einen ist er der Typ mit der Nadel. Für alle, die ihn kennen, ist er einfach: der Kapt'n.</p>
+        </section>
+
+        <!-- DIE GESCHICHTE -->
+        <section class="section-dark paddy-story">
+            <div class="section-intro">
+                <span>Die Geschichte</span>
+                <h2>Vom eigenen Kurs.</h2>
+            </div>
+
+            <div class="paddy-story-body">
+                <!-- TODO (Paddy): Diese Absätze sind ein erster Entwurf im Ton der Seite – bitte mit deiner echten Geschichte ersetzen/ergänzen (Werdegang, wie du zum Tätowieren gekommen bist, prägende Stationen). -->
+                <p class="reveal-text">Paddy hat nie den geraden Weg gesucht. Schon lange bevor die erste Nadel Haut berührte, war klar: ein Leben nach fremdem Fahrplan würde nicht reichen. Musik, Reisen, Menschen mit echten Geschichten – daraus ist mit der Zeit die Kunst geworden, die heute sein Handwerk ist.</p>
+                <p class="reveal-text">Tätowieren war für ihn nie ein Trend. Es war die logische Konsequenz aus einem Leben, das sich nie mit der Oberfläche zufriedengegeben hat. Wer bei ihm sitzt, merkt schnell: Hier redet jemand mit dir, nicht über dich. Der Kapt'n hört zu, bevor er zeichnet – und zeichnet erst, wenn er wirklich verstanden hat, was du für immer tragen willst.</p>
+                <p class="reveal-text">Halb wilder Freigeist, halb ruhiger Zuhörer – diese Mischung ist sein Markenzeichen. Kein lauter Auftritt, keine Show. Dafür echte Präsenz, im Gespräch genauso wie an der Maschine.</p>
+            </div>
+
+            <blockquote class="paddy-quote">
+                <p>„Mut ist der Anfang von Freiheit. Und Freiheit sieht man manchmal einfach an der Haut.“</p>
+                <cite>— Kapt'n Paddy</cite>
+            </blockquote>
+        </section>
+
+        <!-- WAS IHN ANTREIBT -->
+        <section class="section-cream paddy-drivers">
+            <div class="section-intro">
+                <span>Was ihn antreibt</span>
+                <h2>Drei Dinge, die zählen.</h2>
+            </div>
+
+            <div class="paddy-driver-grid">
+                <article class="paddy-driver">
+                    <img src="images/compass04.png" alt="" class="driver-icon" aria-hidden="true">
+                    <h3>Der eigene Kurs</h3>
+                    <p>Paddy tätowiert nicht nach Trend oder Terminplan – sondern wenn Mensch, Motiv und Moment zusammenpassen.</p>
+                </article>
+                <article class="paddy-driver">
+                    <img src="images/anker01.png" alt="" class="driver-icon" aria-hidden="true">
+                    <h3>Bodenständigkeit</h3>
+                    <p>So halbwild er wirkt: Im Atelier ist er ruhig, präsent und mit ganzer Aufmerksamkeit bei dir.</p>
+                </article>
+                <article class="paddy-driver">
+                    <img src="images/skull02.png" alt="" class="driver-icon" aria-hidden="true">
+                    <h3>Ehrlichkeit</h3>
+                    <p>Er sagt, was er denkt – auch wenn ein Motiv nicht zu dir passt. Lieber ehrlich als bequem.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- BILDSTRECKE -->
+        <section class="section-dark paddy-gallery">
+            <figure class="paddy-photo photo-a progressive-img-container">
+                <img src="images/hero-1b.jpg" data-large="images/hero-1a.jpg" alt="Kapt'n Paddy im Atelier" class="progressive-img">
+            </figure>
+            <figure class="paddy-photo photo-b progressive-img-container">
+                <img src="images/corner-02b.jpg" data-large="images/corner-02a.jpg" alt="Kapt'n Paddy an seinem Arbeitsplatz" class="progressive-img">
+                <img src="images/rad.png" alt="" class="paddy-icon icon-wheel-gallery" aria-hidden="true">
+            </figure>
+            <figure class="paddy-photo photo-c progressive-img-container">
+                <img src="images/paddy-freigeist-b.jpg" data-large="images/paddy-freigeist-a.jpg" alt="Kapt'n Paddy mit seinem Hund" class="progressive-img">
+            </figure>
+        </section>
+
+        <!-- CTA -->
+        <section class="final-cta section-yellow">
+            <p class="tiny-label">Bereit, den Kapt'n kennenzulernen?</p>
+            <h2>
+                <span class="word-reveal">Erzähl</span>
+                <span class="word-reveal">deine</span>
+                <span class="word-reveal">Story.</span>
+            </h2>
+            <a href="kennenlernen/index.html" class="button button-black">
+                <span>Vibe prüfen</span>
+                <b>→</b>
+            </a>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div>&copy; 2026 Kapt'n Paddy Ink. Alle Rechte vorbehalten.</div>
+            <nav>
+                <a href="kennenlernen/index.html">Kontakt</a>
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+            </nav>
+        </footer>
+    </main>
+
+    <!-- FIXED BOTTOM BAR FÜR MOBILGERÄTE -->
+    <div class="mobile-nav-bar">
+        <a href="index.html">Home</a>
+        <a href="works.html">Works</a>
+        <a href="atelier.html">Atelier</a>
+        <a href="about.html" class="active">Paddy</a>
+        <a href="faq.html">FAQ</a>
+        <a href="kennenlernen/index.html">Vibe Prüfen</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html> 
+<html lang="de"> 
+<head>
+ <meta charset="UTF-8" /> 
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+ <title>Vibe Prüfen — Kapt'n Paddy Ink</title> 
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Rubik+Distressed&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+ <link rel="stylesheet" href="../assets/css/kennenlernen/style.css">
+</head> 
+
+<body>
+
+ <header class="brand-header">
+   <img src="../images/logo.png" alt="Kapt'n Paddy Ink Logo" class="brand-logo-img" id="brand-logo">
+ </header>
+
+ <div class="tabs-container">
+   <nav class="tabs-nav">
+     <a href="../index.html" class="tab-btn"><span class="tab-text">Home</span></a>
+     <a href="../works.html" class="tab-btn"><span class="tab-text">Works</span></a>
+     <a href="../atelier.html" class="tab-btn"><span class="tab-text">Atelier</span></a>
+     <a href="../about.html" class="tab-btn"><span class="tab-text">Paddy</span></a>
+     <a href="../faq.html" class="tab-btn"><span class="tab-text">FAQ</span></a>
+     <a href="index.html" class="tab-btn active"><span class="tab-text">Vibe Prüfen</span></a>
+   </nav>
+ </div>
+
+ <div class="electric-border" id="eb-container">
+   <div class="eb-canvas-container">
+     <canvas id="eb-canvas" class="eb-canvas"></canvas>
+   </div>
+   <div class="eb-layers">
+     <div class="eb-background-glow"></div>
+   </div>
+   
+   <div class="eb-content">
+     <div class="vibe-container">
+       <form action="https://api.web3forms.com/submit" method="POST" id="main-vibe-form">
+         <input type="hidden" name="access_key" value="DEIN-WEB3FORMS-KEY-HIER-EINTRAGEN">
+         <input type="checkbox" name="botcheck" style="display: none;">
+
+         <div class="step-card active" data-step="1">
+           <div class="step-header-nav">
+             <span class="num-badge">01 // IDENTITÄT</span>
+           </div>
+           <h2 class="step-title">Bereit für den<br>nächsten Schritt?</h2>
+           <p class="step-sub">Lass uns den Vibe checken. Wie lautet dein Name?</p>
+           <input type="text" name="visitor_name" id="field-name" class="input-field active-shimmer-line" placeholder="DEIN NAME..." required autocomplete="off">
+           <button type="button" class="action-btn next-trigger">WEITERGEHEN →</button>
+         </div>
+
+         <div class="step-card" data-step="2">
+           <div class="step-header-nav">
+             <button type="button" class="back-btn prev-trigger">← ZURÜCK</button>
+             <span class="num-badge">02 // PLATZIERUNG</span>
+           </div>
+           <h2 class="step-title">Wo soll die<br>Nadel hin?</h2>
+           <p class="step-sub">Welche Körperstelle hast du im Kopf?</p>
+           <div class="search-wrapper">
+             <input type="text" name="body_location" id="field-loc" class="input-field" placeholder="KÖRPERSTELLE..." autocomplete="off">
+             <div class="search-results" id="search-results-box"></div>
+           </div>
+           <button type="button" class="action-btn next-trigger">STELLE SPEICHERN →</button>
+         </div>
+
+         <div class="step-card" data-step="3">
+           <div class="step-header-nav">
+             <button type="button" class="back-btn prev-trigger">← ZURÜCK</button>
+             <span class="num-badge">03 // SUBSTANZ</span>
+           </div>
+           <h2 class="step-title">Kommen wir zur Sache...</h2>
+           <p class="step-sub">Erzähl mir von deiner Idee.</p>
+           <textarea name="tattoo_story" id="field-story" class="input-field" rows="5" placeholder="Was ist deine Story, was treibt dich an?..."></textarea>
+           <button type="button" class="action-btn next-trigger">Story Complete? →</button>
+         </div>
+
+         <div class="step-card" data-step="4">
+           <div class="step-header-nav">
+             <button type="button" class="back-btn prev-trigger">← ZURÜCK</button>
+             <span class="num-badge">04 // ERREICHBARKEIT</span>
+           </div>
+           <h2 class="step-title">Wie erreiche ich dich?</h2>
+           <p class="step-sub">Wähle deinen bevorzugten Kanal und hinterlasse die Details.</p>
+           <div class="select-stack">
+             <button type="button" class="option-btn" data-channel="Instagram">Instagram</button>
+             <button type="button" class="option-btn" data-channel="WhatsApp">WhatsApp</button>
+             <button type="button" class="option-btn" data-channel="Telefon">Telefonruf</button>
+           </div>
+           <input type="hidden" name="contact_method" id="hidden-channel-field">
+           <input type="text" name="contact_details" id="field-details" class="input-field" placeholder="WÄHLE ZUERST EINEN KANAL..." required autocomplete="off">
+           <button type="submit" class="action-btn" style="background: var(--accent-red); color: white;">VIBE-CHECK ABSENDEN →</button>
+         </div>
+       </form>
+     </div>
+   </div>
+ </div>
+
+ <!-- FOOTER -->
+ <footer class="footer">
+     <div>&copy; 2026 Kapt'n Paddy Ink. Alle Rechte vorbehalten.</div>
+     <nav>
+         <a href="../impressum.html">Impressum</a>
+         <a href="../datenschutz.html">Datenschutz</a>
+     </nav>
+ </footer>
+
+ <script src="../assets/js/kennenlernen/script.js"></script>
+ <script src="../assets/js/darkveil.js"></script>
+</body> 
+</html>

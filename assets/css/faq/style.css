@@ -1,0 +1,316 @@
+/* ==========================================================================
+   FAQ-HERO SPACINGS (DYNAMISCH AN DIE UNIFORMEN LOGO-MASSE ANGEPASST)
+   ========================================================================== */
+.faq-page {
+    padding-bottom: 70px;
+}
+
+@media (min-width: 900px) {
+    .faq-page {
+        padding-bottom: 0;
+    }
+}
+
+.faq-hero {
+    /* Perfekt ausbalancierter Abstand, damit die gelbe Zeile exakt unter dem 160px-Logo sitzt */
+    padding-top: 230px !important; 
+    padding-bottom: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+@media (min-width: 900px) {
+    .faq-hero {
+        padding-top: 80px !important;
+        padding-bottom: 60px !important;
+    }
+}
+
+/* ==========================================================================
+   UNIFORM LOGO- & HEADER-SKALIERUNG (EXAKT WIE KENNENLERNEN / VIBE-CHECK)
+   ========================================================================== */
+
+/* 1. MOBIL-ANSICHT (Identisch zu Vibe-Check) */
+header.site-header, 
+.site-header {
+    height: auto !important;
+    min-height: 190px !important;
+    padding: 20px 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.brand, 
+header .brand, 
+.site-header .brand {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: none !important;
+}
+
+img.brand-logo, 
+.brand-logo, 
+.brand img {
+    width: 160px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+    object-fit: contain !important;
+    max-height: none !important;
+    transform: scale(1) !important;
+}
+
+/* 2. PC-ANSICHT */
+@media (min-width: 900px) {
+    header.site-header, 
+    .site-header {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 240px !important;
+        min-height: 240px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 0 40px !important;
+        z-index: 100 !important;
+        pointer-events: none !important;
+    }
+
+    header.site-header a, 
+    header.site-header nav,
+    .site-header a,
+    .site-header nav {
+        pointer-events: auto !important;
+    }
+
+    img.brand-logo, 
+    .brand-logo, 
+    .brand img {
+        width: 250px !important;
+        height: auto !important;
+        transform: scale(1.25) !important;
+        margin: 0 0 0 30px !important;
+    }
+}
+
+/* ==========================================================================
+   AKKORDEON STYLING (SAUBERER MAGAZIN-LOOK)
+   ========================================================================== */
+.accordion-item {
+    border-bottom: 1px solid rgba(244, 237, 217, 0.15);
+    background: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-item:first-child {
+    border-top: 1px solid rgba(244, 237, 217, 0.15);
+}
+
+.accordion-trigger {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 8px;
+    text-align: left;
+    color: var(--cream);
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.accordion-title {
+    font-family: var(--display);
+    font-size: clamp(18px, 4.5vw, 26px);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    transition: color 0.3s ease;
+}
+
+.accordion-icon {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-left: 20px;
+}
+
+.accordion-icon::before,
+.accordion-icon::after {
+    content: '';
+    position: absolute;
+    background-color: var(--yellow);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.accordion-icon::before {
+    top: 8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+}
+
+.accordion-icon::after {
+    left: 8px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+}
+
+.accordion-trigger:hover .accordion-title {
+    color: var(--yellow);
+}
+
+.accordion-trigger[aria-expanded="true"] .accordion-title {
+    color: var(--yellow);
+}
+
+.accordion-trigger[aria-expanded="true"] .accordion-icon::after {
+    transform: rotate(90deg);
+    opacity: 0;
+}
+
+.accordion-trigger[aria-expanded="true"] .accordion-icon::before {
+    transform: rotate(180deg);
+    background-color: var(--red);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.accordion-content-inner {
+    padding: 0 8px 32px 8px;
+}
+
+.accordion-content-inner p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--cream-75);
+    margin: 0;
+    max-width: 680px;
+}
+
+@media (min-width: 760px) {
+    .faq-hero {
+        padding: 40px 60px !important;
+        min-height: 35vh;
+    }
+    .faq-accordion-section {
+        padding: 60px 60px 120px;
+    }
+    .accordion-trigger {
+        padding: 32px 16px;
+    }
+    .accordion-content-inner {
+        padding: 0 16px 40px 16px;
+    }
+    .accordion-content-inner p {
+        font-size: 16px;
+    }
+}
+
+/* BURGER-MENÜ AUSBLENDEN FÜR MOBILE-BAR FOKUS */
+@media (max-width: 900px) {
+    .menu-toggle, 
+    .site-header .nav,
+    [id*="menu-overlay"], 
+    .menu-backdrop {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+    
+    .site-header {
+        justify-content: center !important;
+    }
+}
+
+/* ==========================================================================
+   FIXIERTE NAVI-LEISTE UNTEN (SMARTPHONES)
+   ========================================================================== */
+.mobile-nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    background: rgba(20, 18, 16, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(244, 237, 217, 0.1);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 14px 4px;
+    z-index: 9999;
+}
+
+.mobile-nav-bar a {
+    text-decoration: none;
+    font-family: var(--text);
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--cream-55);
+    text-transform: uppercase;
+    flex: 1;
+    text-align: center;
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease;
+}
+
+.mobile-nav-bar a.active {
+    color: var(--red) !important;
+}
+
+@media (min-width: 900px) {
+    .mobile-nav-bar {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+}
+
+/* UNSICHTBARE OVERLAYS ENTSCHÄRFEN (Die eigentliche Ursache) */
+.page-noise, 
+.cursor,
+[class*="noise"],
+[class*="overlay"] {
+    pointer-events: none !important; /* Lässt Klicks komplett durch das Rauschen durchfallen */
+}
+
+/* Zwingt den Hauptinhalt in eine saubere Klicgebene am PC */
+.faq-main-content {
+    position: relative !important;
+    z-index: 10 !important;
+    pointer-events: auto !important;
+}
+
+/* Garantiert absolute Klickbarkeit des Footers am PC */
+.footer {
+    position: relative !important;
+    z-index: 999999 !important;
+    clear: both !important;
+    display: block !important;
+    pointer-events: auto !important;
+}
+
+.footer a {
+    position: relative !important;
+    z-index: 9999999 !important;
+    pointer-events: auto !important;
+}

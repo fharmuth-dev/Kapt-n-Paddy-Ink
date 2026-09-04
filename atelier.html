@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Das Atelier // Kapt'n Paddy Ink</title>
+    <meta name="description" content="Das Privatatelier von Kapt'n Paddy Ink in Ulm: ein ruhiger, geschützter Raum für 1-zu-1-Sessions, echte Gespräche und Tattoos mit Charakter.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- CSS-Dateien -->
+    <link rel="stylesheet" href="assets/css/home/style.css">
+    <link rel="stylesheet" href="assets/css/atelier/style.css">
+    <!-- GSAP Kernbibliothek & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <!-- Skripte -->
+    <script src="assets/js/home/script.js" defer></script>
+    <script src="assets/js/atelier/script.js" defer></script>
+</head>
+<body class="preloader-active atelier-page">
+
+    <!-- SMART PRELOADER -->
+    <div id="smart-preloader">
+        <div class="preloader-content">
+            <div class="spinner-box">
+                <div class="configure-border-1"><div class="configure-core"></div></div>
+                <div class="configure-border-2"><div class="configure-core"></div></div>
+            </div>
+            <div class="preloader-text">Tür wird geöffnet...</div>
+        </div>
+    </div>
+
+    <!-- BACKGROUND NOISE -->
+    <div class="page-noise"></div>
+    <div class="cursor"></div>
+
+    <!-- HEADER / BRAND -->
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <img src="images/logo.png" alt="Kapt'n Paddy Logo" class="brand-logo">
+        </a>
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="works.html">Works</a>
+            <a href="atelier.html" class="active">Atelier</a>
+            <a href="about.html">Paddy</a>
+            <a href="faq.html">FAQ</a>
+            <a href="kennenlernen/index.html" class="nav-cta">Vibe Prüfen</a>
+        </nav>
+    </header>
+
+    <main class="atelier-main-content">
+
+        <!-- HERO -->
+        <section class="section-dark atelier-hero">
+            <div class="atelier-hero-bg progressive-img-container">
+                <img src="images/corner-1b.jpg" data-large="images/corner-1a.jpg" alt="Blick in das Atelier von Kapt'n Paddy Ink" class="progressive-img">
+                <div class="atelier-hero-overlay"></div>
+            </div>
+            <div class="atelier-hero-content">
+                <span class="tiny-label word-reveal">Kein Studio. Ein Refugium.</span>
+                <h1 class="hero-title">
+                    <span class="title-row-1 word-reveal">Das</span>
+                    <span class="title-row-2 word-reveal">Atelier</span>
+                </h1>
+                <p class="hero-description reveal-text">Ein privater Rückzugsort statt Laufkundschaft und Wartezimmer-Gefühl. Hier gibt es nur dich, deine Idee und den Kapt'n.</p>
+            </div>
+        </section>
+
+        <!-- PHILOSOPHIE / INTRO -->
+        <section class="section-charcoal atelier-intro curtain-reveal-section">
+            <div class="curtain-wiper"></div>
+            <div class="atelier-intro-left">
+                <span>Der Raum</span>
+            </div>
+            <div class="atelier-intro-right">
+                <h2><span class="line-reveal">Kein Durchlauf.<br>Kein Lärm.</span></h2>
+                <!-- TODO (Paddy): Diesen Absatz nach Wunsch mit persönlichen Details ergänzen/ersetzen -->
+                <p class="reveal-text">Vergiss das klassische Studio-Gefühl mit surrenden Nachbarkabinen und fremden Blicken. Hier arbeitet ausschließlich der Kapt'n, ausschließlich mit dir. Keine Zwischentermine, keine Hektik, kein Publikum.</p>
+                <p class="reveal-text">Musik nach deinem Geschmack, Kaffee, ein bequemer Platz zum Ankommen. Der Raum ist so gebaut, dass du dich fallen lassen kannst, bevor die Nadel überhaupt ansetzt.</p>
+            </div>
+        </section>
+
+        <!-- BILDSTRECKE -->
+        <section class="section-dark atelier-gallery">
+            <div class="section-intro">
+                <span>Einblicke</span>
+                <h2>Wo es passiert.</h2>
+            </div>
+
+            <div class="atelier-photo-stack">
+                <figure class="atelier-photo photo-large progressive-img-container">
+                    <img src="images/atelier-session-b.jpg" data-large="images/atelier-session-a.jpg" alt="Kapt'n Paddy bei einer Session im Atelier" class="progressive-img">
+                    <img src="images/rad.png" alt="" class="atelier-icon icon-wheel" aria-hidden="true">
+                </figure>
+                <figure class="atelier-photo photo-detail progressive-img-container">
+                    <img src="images/corner-02b.jpg" data-large="images/corner-02a.jpg" alt="Der Kapt'n in seinem Atelier" class="progressive-img">
+                </figure>
+                <figure class="atelier-photo photo-wide progressive-img-container">
+                    <img src="images/corner-1b.jpg" data-large="images/corner-1a.jpg" alt="Der Arbeitsplatz von Kapt'n Paddy Ink" class="progressive-img">
+                    <img src="images/anker.png" alt="" class="atelier-icon icon-anchor" aria-hidden="true">
+                </figure>
+            </div>
+
+            <!-- TODO (Paddy): Kurzer, persönlicher Text zum Raum / zur Einrichtung folgt hier nachträglich -->
+            <p class="atelier-gallery-note reveal-text">Mehr Eindrücke &amp; frische Fotos aus dem Atelier folgen laufend. Schau ruhig ab und zu wieder vorbei.</p>
+        </section>
+
+        <!-- VIER WERTE (kompakt, atelierbezogen) -->
+        <section class="section-red atelier-values">
+            <div class="atelier-value">
+                <span class="number">01</span>
+                <h3>Privat</h3>
+                <p>Nur du, deine Idee und der Kapt'n. Keine fremden Blicke.</p>
+            </div>
+            <div class="atelier-value">
+                <span class="number">02</span>
+                <h3>Ruhig</h3>
+                <p>Zeit statt Taktung. Ein Termin, volle Aufmerksamkeit.</p>
+            </div>
+            <div class="atelier-value">
+                <span class="number">03</span>
+                <h3>Persönlich</h3>
+                <p>Musik, Kaffee, echte Gespräche – wie im eigenen Wohnzimmer.</p>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="final-cta section-yellow">
+            <p class="tiny-label">Lust, den Raum kennenzulernen?</p>
+            <h2>
+                <span class="word-reveal">Schau</span>
+                <span class="word-reveal">vorbei.</span>
+            </h2>
+            <a href="kennenlernen/index.html" class="button button-black">
+                <span>Vibe prüfen</span>
+                <b>→</b>
+            </a>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div>&copy; 2026 Kapt'n Paddy Ink. Alle Rechte vorbehalten.</div>
+            <nav>
+                <a href="kennenlernen/index.html">Kontakt</a>
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+            </nav>
+        </footer>
+    </main>
+
+    <!-- FIXED BOTTOM BAR FÜR MOBILGERÄTE -->
+    <div class="mobile-nav-bar">
+        <a href="index.html">Home</a>
+        <a href="works.html">Works</a>
+        <a href="atelier.html" class="active">Atelier</a>
+        <a href="about.html">Paddy</a>
+        <a href="faq.html">FAQ</a>
+        <a href="kennenlernen/index.html">Vibe Prüfen</a>
+    </div>
+
+</body>
+</html>

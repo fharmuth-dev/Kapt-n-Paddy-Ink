@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Works // Kapt'n Paddy Ink</title>
+    <meta name="description" content="Geschichten auf Haut: Ausgewählte Arbeiten von Kapt'n Paddy Ink – Custom Tattoos mit Charakter, entstanden im Privatatelier in Ulm.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- CSS-Dateien -->
+    <link rel="stylesheet" href="assets/css/home/style.css">
+    <link rel="stylesheet" href="assets/css/works/style.css">
+    <!-- GSAP Kernbibliothek & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <!-- Skripte -->
+    <script src="assets/js/home/script.js" defer></script>
+    <script src="assets/js/works/script.js" defer></script>
+</head>
+<body class="preloader-active works-page">
+
+    <!-- SMART PRELOADER -->
+    <div id="smart-preloader">
+        <div class="preloader-content">
+            <div class="spinner-box">
+                <div class="configure-border-1"><div class="configure-core"></div></div>
+                <div class="configure-border-2"><div class="configure-core"></div></div>
+            </div>
+            <div class="preloader-text">Galerie wird geladen...</div>
+        </div>
+    </div>
+
+    <!-- BACKGROUND NOISE -->
+    <div class="page-noise"></div>
+    <div class="cursor"></div>
+
+    <!-- HEADER / BRAND -->
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <img src="images/logo.png" alt="Kapt'n Paddy Logo" class="brand-logo">
+        </a>
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="works.html" class="active">Works</a>
+            <a href="atelier.html">Atelier</a>
+            <a href="about.html">Paddy</a>
+            <a href="faq.html">FAQ</a>
+            <a href="kennenlernen/index.html" class="nav-cta">Vibe Prüfen</a>
+        </nav>
+    </header>
+
+    <main class="works-main-content">
+
+        <!-- INTRO HERO -->
+        <section class="section-dark works-hero">
+            <div class="works-hero-container">
+                <span class="tiny-label word-reveal">Ausgewählte Arbeiten</span>
+                <h1 class="hero-title">
+                    <span class="title-row-1 word-reveal">Geschichten</span>
+                    <span class="title-row-2 word-reveal">auf Haut.</span>
+                </h1>
+                <p class="hero-description reveal-text">Kein Katalog, keine Kopien. Jedes Stück hier ist gemeinsam mit einem Menschen entstanden – und trägt seine eigene Geschichte.</p>
+            </div>
+        </section>
+
+        <!-- GALERIE / RONDELL -->
+        <section class="section-charcoal works-gallery-section">
+
+            <div class="works-gallery-header">
+                <span class="works-counter"><span id="active-index">01</span> / <span id="total-index">19</span></span>
+                <div class="works-gallery-controls">
+                    <button type="button" class="gallery-arrow" id="gallery-prev" aria-label="Vorheriges Werk">←</button>
+                    <button type="button" class="gallery-arrow" id="gallery-next" aria-label="Nächstes Werk">→</button>
+                </div>
+            </div>
+
+            <div class="works-carousel" id="works-carousel" tabindex="0">
+
+                <article class="work-card" data-work="1">
+                    <div class="work-card-media progressive-img-container">
+                        <img src="images/hintergrund-2b.jpg" data-large="images/hintergrund-2a.jpg" alt="Feines Auge-des-Horus-Motiv im Nacken, kombiniert mit Schrift" class="progressive-img">
+                    </div>
+                    <div class="work-card-caption">
+                        <span class="work-tag">Custom · Fineline</span>
+                        <h3>Mein Blick, meine Regeln</h3>
+                    </div>
+                </article>
+
+                <article class="work-card" data-work="2">
+                    <div class="work-card-media progressive-img-container">
+                        <img src="images/handyhero-01b.jpg" data-large="images/handyhero-01a.jpg" alt="Grafisches Blackwork-Sleeve am Oberarm" class="progressive-img">
+                    </div>
+                    <div class="work-card-caption">
+                        <span class="work-tag">Blackwork · Sleeve</span>
+                        <h3>Klare Kante</h3>
+                    </div>
+                </article>
+
+                <article class="work-card" data-work="3">
+                    <div class="work-card-media progressive-img-container">
+                        <img src="images/handy-01b.jpg" data-large="images/handy-01a.jpg" alt="Rose wird im Detail gestochen" class="progressive-img">
+                    </div>
+                    <div class="work-card-caption">
+                        <span class="work-tag">Work in Progress</span>
+                        <h3>Entsteht gerade</h3>
+                    </div>
+                </article>
+
+                <article class="work-card" data-work="4">
+                    <div class="work-card-media progressive-img-container">
+                        <img src="images/works-manuela-rose-b.jpg" data-large="images/works-manuela-rose-a.jpg" alt="Rose mit Schriftzug &quot;Manuela&quot; auf dem Brustkorb" class="progressive-img">
+                    </div>
+                    <div class="work-card-caption">
+                        <span class="work-tag">Custom · Lettering</span>
+                        <h3>Für immer nah</h3>
+                    </div>
+                </article>
+
+                <article class="work-card" data-work="5">
+                    <div class="work-card-media progressive-img-container">
+                        <img src="images/works-owl-sleeve-b.jpg" data-large="images/works-owl-sleeve-a.jpg" alt="Sleeve mit Eule, Totenköpfen und Rose" class="progressive-img">
+                    </div>
+                    <div class="work-card-caption">
+                        <span class="work-tag">Blackwork · Sleeve</span>
+                        <h3>Zeit &amp; Vergänglichkeit</h3>
+                    </div>
+                </article>
+
+                <article class="work-card" data-work="6">
+                    <div class="work-card-media progressive-img-container">
+                        <img src="images/works-cherub-bw-b.jpg" data-large="images/works-cherub-bw-a.jpg" alt="Engel mit Krone, Schwarz-Weiß-Realismus am Unterarm" class="progressive-img">
+                    </div>
+                    <div class="work-card-caption">
+                        <span class="work-tag">Realism · B&amp;W</span>
+                        <h3>Wächter</h3>
+                    </div>
+                </article>
+
+                <article class="work-card" data-work="7">
+                    <div class="work-card-media progressive-img-container">
+                        <img src="images/works-dove-bw-b.jpg" data-large="images/works-dove-bw-a.jpg" alt="Taube im Realismus-Stil am Unterarm" class="progressive-img">
+                    </div>
+                    <div class="work-card-caption">
+                        <span class="work-tag">Realism · B&amp;W</span>
+                        <h3>Im Flug</h3>
+                    </div>
+                </article>
+
+                <article class="work-card" data-work="8">
+                    <div class="work-card-media progressive-img-container">
+                        <img src="images/works-rose-sleeve-bw-b.jpg" data-large="images/works-rose-sleeve-bw-a.jpg" alt="Rosen-Sleeve in Schwarz-Grau-Realismus" class="progressive-img">
+                    </div>
+                    <div class="work-card-caption">
+                        <span class="work-tag">Realism · Sleeve</span>
+                        <h3>Dornen &amp; Blüten</h3>
+                    </div>
+                </article>
+
+                <article class="work-card" data-work="9">
+                    <div class="work-card-media progressive-img-container">
+                        <img src="images/works-dog-portrait-b.jpg" data-large="images/works-dog-portrait-a.jpg" alt="Hunde-Porträt im Realismus-Stil am Bein" class="progressive-img">
+                    </div>
+                    <div class="work-card-caption">
+                        <span class="work-tag">Realism · Portrait</span>
+                        <h3>Bester Freund</h3>
+                    </div>
+                </article>
+
+                <article class="work-card" data-work="10">
+                    <div class="work-card-media progressive-img-container">
+                        <img src="images/works-phoenix-b.jpg" data-large="images/works-phoenix-a.jpg" alt="Phönix in Rot und Schwarz am Rippenbogen" class="progressive-img">
+                    </div>
+                    <div class="work-card-caption">
+                        <span class="work-tag">Custom · Color</span>
+                        <h3>Aus der Asche</h3>
+                    </div>
+                </article>
+
+                <article class="work-card" data-work="11">
+                    <div class="work-card-media progressive-img-container">
+                        <img src="images/works-corset-back-b.jpg" data-large="images/works-corset-back-a.jpg" alt="Grafisches Korsett-Motiv auf dem Rücken" class="progressive-img">
+                    </div>
+                    <div class="work-card-caption">
+                        <span class="work-tag">Blackwork</span>
+                        <h3>Schnürung</h3>
+                    </div>
+                </article>
+
+                <article class="work-card" data-work="12">
+                    <div class="work-card-media progressive-img-container">
+                        <img src="images/works-skull-sleeve-b.jpg" data-large="images/works-skull-sleeve-a.jpg" alt="Farbiges Totenkopf-Sleeve am Arm" class="progressive-img">
+                    </div>
+                    <div class="work-card-caption">
+                        <span class="work-tag">Custom · Color</span>
+                        <h3>Memento Mori</h3>
+                    </div>
+                </article>
+
+                <article class="work-card" data-work="13">
+                    <div class="work-card-media progressive-img-container">
+                        <img src="images/works-lion-color-b.jpg" data-large="images/works-lion-color-a.jpg" alt="Löwe in Farbe am Oberarm" class="progressive-img">
+                    </div>
+                    <div class="work-card-caption">
+                        <span class="work-tag">Custom · Color</span>
+                        <h3>Löwenherz</h3>
+                    </div>
+                </article>
+
+                <article class="work-card" data-work="14">
+                    <div class="work-card-media progressive-img-container">
+                        <img src="images/works-anime-portrait-b.jpg" data-large="images/works-anime-portrait-a.jpg" alt="Farbiges Charakter-Porträt am Oberarm" class="progressive-img">
+                    </div>
+                    <div class="work-card-caption">
+                        <span class="work-tag">Custom · Color</span>
+                        <h3>Charakterkopf</h3>
+                    </div>
+                </article>
+
+                <article class="work-card" data-work="15">
+                    <div class="work-card-media progressive-img-container">
+                        <img src="images/works-floral-sleeve-color-b.jpg" data-large="images/works-floral-sleeve-color-a.jpg" alt="Botanisches Sleeve in Farbe" class="progressive-img">
+                    </div>
+                    <div class="work-card-caption">
+                        <span class="work-tag">Custom · Color</span>
+                        <h3>Wildwuchs</h3>
+                    </div>
+                </article>
+
+                <article class="work-card" data-work="16">
+                    <div class="work-card-media progressive-img-container">
+                        <img src="images/works-church-fineline-b.jpg" data-large="images/works-church-fineline-a.jpg" alt="Architektur-Motiv einer Kirchturmspitze am Unterarm" class="progressive-img">
+                    </div>
+                    <div class="work-card-caption">
+                        <span class="work-tag">Fineline</span>
+                        <h3>Wahrzeichen</h3>
+                    </div>
+                </article>
+
+                <article class="work-card" data-work="17">
+                    <div class="work-card-media progressive-img-container">
+                        <img src="images/works-floral-shoulder-b.jpg" data-large="images/works-floral-shoulder-a.jpg" alt="Blumen-Motiv in Rot und Schwarz an der Schulter" class="progressive-img">
+                    </div>
+                    <div class="work-card-caption">
+                        <span class="work-tag">Custom · Color</span>
+                        <h3>Zerbrechlich &amp; Stark</h3>
+                    </div>
+                </article>
+
+                <article class="work-card" data-work="18">
+                    <div class="work-card-media progressive-img-container">
+                        <img src="images/works-spine-fineline-b.jpg" data-large="images/works-spine-fineline-a.jpg" alt="Feine Linien entlang der Wirbelsäule" class="progressive-img">
+                    </div>
+                    <div class="work-card-caption">
+                        <span class="work-tag">Fineline</span>
+                        <h3>Rückgrat</h3>
+                    </div>
+                </article>
+
+                <article class="work-card" data-work="19">
+                    <div class="work-card-media progressive-img-container">
+                        <img src="images/works-wings-chest-b.jpg" data-large="images/works-wings-chest-a.jpg" alt="Symmetrisches Flügel-Motiv auf der Brust" class="progressive-img">
+                    </div>
+                    <div class="work-card-caption">
+                        <span class="work-tag">Blackwork</span>
+                        <h3>Erhoben</h3>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- TODO (Paddy): Weitere Arbeiten einfach als zusätzliche <article class="work-card"> nach dem gleichen Muster ergänzen -->
+            <p class="works-note reveal-text">Diese Galerie wächst laufend. Frische Arbeiten &amp; abgeheilte Ergebnisse folgen in Kürze.</p>
+        </section>
+
+        <!-- LIGHTBOX -->
+        <div class="works-lightbox" id="works-lightbox" aria-hidden="true">
+            <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Schließen">✕</button>
+            <img src="" alt="" id="lightbox-img">
+        </div>
+
+        <!-- CTA BANNER -->
+        <section class="works-cta">
+            <a href="kennenlernen/index.html" class="works-cta-link">
+                <img src="images/deine-idee.png" alt="Bereit? Deine Idee wartet." class="works-cta-img">
+            </a>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div>&copy; 2026 Kapt'n Paddy Ink. Alle Rechte vorbehalten.</div>
+            <nav>
+                <a href="kennenlernen/index.html">Kontakt</a>
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+            </nav>
+        </footer>
+    </main>
+
+    <!-- FIXED BOTTOM BAR FÜR MOBILGERÄTE -->
+    <div class="mobile-nav-bar">
+        <a href="index.html">Home</a>
+        <a href="works.html" class="active">Works</a>
+        <a href="atelier.html">Atelier</a>
+        <a href="about.html">Paddy</a>
+        <a href="faq.html">FAQ</a>
+        <a href="kennenlernen/index.html">Vibe Prüfen</a>
+    </div>
+
+</body>
+</html>

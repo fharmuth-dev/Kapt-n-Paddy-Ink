@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datenschutzerklärung — Kapt'n Paddy Ink</title>
+  <meta name="robots" content="noindex, follow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- GSAP Library für den Custom-Cursor -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <link rel="stylesheet" href="assets/css/home/style.css">
+
+  <style>
+    /* Ausblenden des System-Mauszeigers auf PCs zugunsten des runden Cursors */
+    @media (min-width: 769px) {
+      body, a, button {
+        cursor: none !important;
+      }
+    }
+    
+    /* Auf Smartphones den Custom-Cursor deaktivieren, um Touch nicht zu stören */
+    @media (max-width: 768px) {
+      .cursor {
+        display: none !important;
+      }
+      body, a, button {
+        cursor: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Smart Preloader -->
+  <div id="smart-preloader" class="preloader-active">
+    <div class="preloader-content">
+      <div class="spinner-box">
+        <div class="configure-border-1"><div class="configure-core"></div></div>
+        <div class="configure-border-2"><div class="configure-core"></div></div>
+      </div>
+      <span class="preloader-text">Verbindung zum Atelier wird hergestellt...</span>
+    </div>
+  </div>
+
+  <!-- Der runde Custom-Cursor -->
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="page-noise" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="brand">Kapt'n Paddy Ink</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="works.html">Works</a>
+      <a href="atelier.html">Atelier</a>
+      <a href="about.html">Paddy</a>
+      <a href="faq.html">FAQ</a>
+      <a href="kennenlernen/index.html">Vibe Prüfen</a>
+    </nav>
+  </header>
+
+  <main style="padding: 140px 20px 100px 20px; max-width: 800px; margin: 0 auto; color: #fff;">
+    
+    <a href="index.html" style="color: rgba(255, 255, 255, 0.5); text-decoration: none; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; margin-bottom: 30px;">← Zurück zur Startseite</a>
+
+    <h1 style="font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; letter-spacing: 0.04em; margin-bottom: 40px; color: #fff;">Datenschutzerklärung</h1>
+
+    <div style="font-family: 'Inter', sans-serif; font-size: 0.95rem; line-height: 1.8; color: rgba(255, 255, 255, 0.8);">
+      
+      <!-- 1. Datenschutz auf einen Blick -->
+      <h2 style="font-size: 1.25rem; color: #fff; margin-top: 30px; margin-bottom: 10px;">1. Datenschutz auf einen Blick</h2>
+      <p>
+        Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
+      </p>
+
+      <!-- 2. Verantwortliche Stelle & Datenschutzbeauftragter -->
+      <h2 style="font-size: 1.25rem; color: #fff; margin-top: 30px; margin-bottom: 10px;">2. Verantwortliche Stelle & Datenschutzbeauftragter</h2>
+      <p>
+        Verantwortlich für die Datenverarbeitung auf dieser Website sowie Datenschutzbeauftragter ist:
+      </p>
+      <p style="background: rgba(255,255,255,0.03); padding: 15px; border-left: 2px solid #ae9267; margin: 15px 0;">
+        <strong>Patrick Möse</strong><br>
+        Kapt'n Paddy Ink<br>
+        Eberhardtstraße 68<br>
+        89073 Ulm<br><br>
+        E-Mail: <a href="mailto:kaptnpaddy@gmx.de" style="color: #ae9267;">kaptnpaddy@gmx.de</a>
+      </p>
+
+      <!-- 3. Hosting (Strato) -->
+      <h2 style="font-size: 1.25rem; color: #fff; margin-top: 30px; margin-bottom: 10px;">3. Webhosting durch Strato</h2>
+      <p>
+        Wir hosten unsere Website bei der <strong>STRATO AG</strong>, Otto-Ostrowski-Straße 7, 10249 Berlin (nachfolgend: „Strato“). Wenn Sie unsere Website besuchen, erfasst Strato verschiedene Logfiles inklusive Ihrer IP-Adresse.
+      </p>
+      <p>
+        Weitere Details entnehmen Sie der Datenschutzerklärung von Strato: 
+        <a href="https://www.strato.de/datenschutz/" target="_blank" rel="noopener noreferrer" style="color: #ae9267;">https://www.strato.de/datenschutz/</a>.
+      </p>
+      <p>
+        Die Verwendung von Strato erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website.
+      </p>
+
+      <!-- 4. Content Delivery Network (Cloudflare) -->
+      <h2 style="font-size: 1.25rem; color: #fff; margin-top: 30px; margin-bottom: 10px;">4. Content Delivery Network (Cloudflare)</h2>
+      <p>
+        Wir nutzen den Dienst <strong>Cloudflare</strong> der Cloudflare Inc., 101 Townsend St., San Francisco, CA 94107, USA.
+      </p>
+      <p>
+        Cloudflare bietet ein weltweit verteiltes Content Delivery Network mit Schutzfunktionen gegen Angriffe (z. B. DDoS-Attacken). Der Datenverkehr zwischen Ihrem Browser und unserer Website wird über das Netzwerk von Cloudflare geleitet. Cloudflare analysiert diesen Datenverkehr, um Bedrohungen abzuwehren und Ladezeiten zu optimieren.
+      </p>
+      <p>
+        Die Nutzung von Cloudflare erfolgt auf Grundlage unseres berechtigten Interesses an einer sicheren und fehlerfreien Bereitstellung unseres Onlineangebots (Art. 6 Abs. 1 lit. f DSGVO).
+      </p>
+
+      <!-- 5. Ihre Rechte -->
+      <h2 style="font-size: 1.25rem; color: #fff; margin-top: 30px; margin-bottom: 10px;">5. Ihre Rechte</h2>
+      <p>Sie haben jederzeit das Recht:</p>
+      <ul style="padding-left: 20px; margin-bottom: 15px;">
+        <li>unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten,</li>
+        <li>die Berichtigung oder Löschung dieser Daten zu verlangen,</li>
+        <li>die Einschränkung der Datenverarbeitung zu verlangen oder der Verarbeitung zu widersprechen,</li>
+        <li>sich bei der zuständigen Aufsichtsbehörde zu beschweren.</li>
+      </ul>
+      <p>
+        Wenden Sie sich hierfür jederzeit unter den oben angegebenen Kontaktdaten an uns.
+      </p>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+      <div>&copy; 2026 Kapt'n Paddy Ink. Alle Rechte vorbehalten.</div>
+      <nav>
+          <a href="kennenlernen/index.html">Kontakt</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+      </nav>
+  </footer>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <style>
+    .footer {
+      position: relative !important;
+      z-index: 999999 !important;
+      pointer-events: auto !important;
+    }
+    .mobile-nav-bar { display: none; }
+    
+    @media (max-width: 768px) {
+      .footer { padding-bottom: 95px !important; }
+      .mobile-nav-bar {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #0b0b0b;
+        padding: 16px 10px;
+        z-index: 9999999 !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        box-sizing: border-box;
+      }
+      .mobile-nav-bar a {
+        color: rgba(255, 255, 255, 0.4);
+        text-decoration: none;
+        font-family: 'Inter', sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .mobile-nav-bar a:last-child { color: #ae9267; }
+    }
+  </style>
+
+  <div class="mobile-nav-bar">
+    <a href="index.html">Home</a>
+    <a href="works.html">Works</a>
+    <a href="atelier.html">Atelier</a>
+    <a href="about.html">Paddy</a>
+    <a href="faq.html">FAQ</a>
+    <a href="kennenlernen/index.html">Vibe Prüfen</a>
+  </div>
+
+  <!-- Skript zur Steuerung von Preloader & Custom Cursor -->
+  <script src="assets/js/datenschutz/script.js"></script>
+
+</body>
+</html>

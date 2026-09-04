@@ -1,0 +1,349 @@
+/* ==========================================================================
+   WORKS-SEITE — GALERIE / RONDELL
+   Nutzt Variablen & Grundklassen aus assets/css/home/style.css
+   ========================================================================== */
+
+.works-page { padding-bottom: 70px; }
+
+/* ==========================================================================
+   UNIFORME LOGO- & HEADER-SKALIERUNG (identisch zu FAQ / Atelier)
+   ========================================================================== */
+header.site-header,
+.site-header {
+    height: auto !important;
+    min-height: 190px !important;
+    padding: 20px 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.brand,
+header .brand,
+.site-header .brand {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: none !important;
+}
+
+img.brand-logo,
+.brand-logo,
+.brand img {
+    width: 160px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+    object-fit: contain !important;
+    max-height: none !important;
+    transform: scale(1) !important;
+}
+
+@media (min-width: 900px) {
+    header.site-header,
+    .site-header {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 240px !important;
+        min-height: 240px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 0 40px !important;
+        z-index: 100 !important;
+        pointer-events: none !important;
+    }
+    header.site-header a,
+    header.site-header nav,
+    .site-header a,
+    .site-header nav {
+        pointer-events: auto !important;
+    }
+    img.brand-logo,
+    .brand-logo,
+    .brand img {
+        width: 250px !important;
+        height: auto !important;
+        transform: scale(1.25) !important;
+        margin: 0 0 0 30px !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .menu-toggle,
+    .site-header .nav,
+    [id*="menu-overlay"],
+    .menu-backdrop {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+    .site-header { justify-content: center !important; }
+}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.works-hero {
+    padding: calc(190px + 20px) 16px 40px;
+    text-align: left;
+}
+
+.works-hero .hero-title { font-size: clamp(52px, 15vw, 80px); }
+.works-hero .hero-description { max-width: 480px; }
+
+@media (min-width: 900px) {
+    .works-hero { padding: 260px 60px 60px; }
+    .works-hero-container { max-width: var(--max); margin: 0 auto; }
+}
+
+/* ==========================================================================
+   GALERIE — SNAP-SCROLL RONDELL
+   ========================================================================== */
+.works-gallery-section {
+    padding: 40px 0 80px;
+}
+
+.works-gallery-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    margin-bottom: 20px;
+}
+
+.works-counter {
+    font-family: var(--display);
+    font-size: 20px;
+    letter-spacing: .06em;
+    color: var(--cream-75);
+}
+
+#active-index { color: var(--yellow); }
+
+.works-gallery-controls { display: flex; gap: 10px; }
+
+.gallery-arrow {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--cream-20);
+    background: transparent;
+    color: var(--cream);
+    font-size: 18px;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    transition: border-color .2s ease, color .2s ease, background .2s ease;
+}
+
+.gallery-arrow:hover { border-color: var(--yellow); color: var(--yellow); }
+
+.works-carousel {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px 16px 20px;
+    scrollbar-width: none;
+}
+
+.works-carousel::-webkit-scrollbar { display: none; }
+
+.work-card {
+    flex: 0 0 82%;
+    scroll-snap-align: center;
+    background: var(--black-soft);
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(244,237,217,.06);
+    cursor: pointer;
+}
+
+.work-card-media {
+    aspect-ratio: 4 / 5;
+    position: relative;
+}
+
+.work-card-caption {
+    padding: 18px 18px 22px;
+}
+
+.work-tag {
+    display: block;
+    font-family: var(--display);
+    font-size: 13px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 6px;
+}
+
+.work-card-caption h3 {
+    font-family: var(--display);
+    font-size: clamp(26px, 7vw, 34px);
+    text-transform: uppercase;
+    line-height: .95;
+    margin: 0;
+    color: var(--cream);
+}
+
+.works-note {
+    margin: 30px 16px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--cream-55);
+    font-style: italic;
+    max-width: 460px;
+}
+
+@media (min-width: 700px) {
+    .work-card { flex-basis: 46%; }
+}
+
+@media (min-width: 1100px) {
+    .works-gallery-header { max-width: var(--max); margin: 0 auto 24px; padding: 0 60px; }
+    .works-carousel { max-width: var(--max); margin: 0 auto; padding: 4px 60px 20px; }
+    .work-card { flex-basis: 30%; }
+    .works-note { margin: 30px auto 0; padding: 0 60px; max-width: var(--max); }
+}
+
+/* ==========================================================================
+   LIGHTBOX
+   ========================================================================== */
+.works-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    background: rgba(8,7,6,.96);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 16px;
+}
+
+.works-lightbox.open { display: flex; }
+
+.works-lightbox img {
+    max-width: 100%;
+    max-height: 85vh;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.6);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--cream-20);
+    background: rgba(0,0,0,.4);
+    color: var(--cream);
+    border-radius: 50%;
+    font-size: 18px;
+    display: grid;
+    place-content: center;
+}
+
+/* ==========================================================================
+   CTA BANNER ("DEINE IDEE WARTET")
+   ========================================================================== */
+.works-cta {
+    padding: 0 16px 90px;
+}
+
+.works-cta-link {
+    display: block;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform .3s ease;
+}
+
+.works-cta-link:hover { transform: scale(1.01); }
+
+.works-cta-img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+@media (min-width: 900px) {
+    .works-cta { padding: 0 60px 140px; max-width: var(--max); margin: 0 auto; }
+}
+
+/* ==========================================================================
+   FIXIERTE MOBILE NAVI-LEISTE (identisch zu FAQ / Atelier)
+   ========================================================================== */
+.mobile-nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    background: rgba(20, 18, 16, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(244, 237, 217, 0.1);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 14px 4px;
+    z-index: 9999;
+}
+
+.mobile-nav-bar a {
+    text-decoration: none;
+    font-family: var(--text);
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--cream-55);
+    text-transform: uppercase;
+    flex: 1;
+    text-align: center;
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease;
+}
+
+.mobile-nav-bar a.active { color: var(--red) !important; }
+
+@media (min-width: 900px) {
+    .mobile-nav-bar {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+}
+
+.page-noise,
+.cursor,
+[class*="noise"],
+[class*="overlay"] {
+    pointer-events: none !important;
+}
+
+.works-main-content {
+    position: relative !important;
+    z-index: 10 !important;
+    pointer-events: auto !important;
+}
+
+.footer {
+    position: relative !important;
+    z-index: 999999 !important;
+    clear: both !important;
+    display: block !important;
+    pointer-events: auto !important;
+}
+
+.footer a {
+    position: relative !important;
+    z-index: 9999999 !important;
+    pointer-events: auto !important;
+}

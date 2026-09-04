@@ -1,0 +1,403 @@
+/* ==========================================================================
+   PADDY-SEITE (ABOUT) — DIE FLAGSCHIFF-SEITE
+   Nutzt Variablen & Grundklassen aus assets/css/home/style.css
+   ========================================================================== */
+
+.about-page { padding-bottom: 70px; }
+
+/* ==========================================================================
+   UNIFORME LOGO- & HEADER-SKALIERUNG (identisch zu FAQ / Atelier / Works)
+   ========================================================================== */
+header.site-header,
+.site-header {
+    height: auto !important;
+    min-height: 190px !important;
+    padding: 20px 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.brand,
+header .brand,
+.site-header .brand {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: none !important;
+}
+
+img.brand-logo,
+.brand-logo,
+.brand img {
+    width: 160px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+    object-fit: contain !important;
+    max-height: none !important;
+    transform: scale(1) !important;
+}
+
+@media (min-width: 900px) {
+    header.site-header,
+    .site-header {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 240px !important;
+        min-height: 240px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 0 40px !important;
+        z-index: 100 !important;
+        pointer-events: none !important;
+    }
+    header.site-header a,
+    header.site-header nav,
+    .site-header a,
+    .site-header nav {
+        pointer-events: auto !important;
+    }
+    img.brand-logo,
+    .brand-logo,
+    .brand img {
+        width: 250px !important;
+        height: auto !important;
+        transform: scale(1.25) !important;
+        margin: 0 0 0 30px !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .menu-toggle,
+    .site-header .nav,
+    [id*="menu-overlay"],
+    .menu-backdrop {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+    .site-header { justify-content: center !important; }
+}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.paddy-hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: flex-end;
+    padding: calc(190px + 20px) 16px 60px;
+    overflow: hidden;
+}
+
+.paddy-hero-bg { position: absolute; inset: 0; z-index: 0; }
+.paddy-hero-bg img { object-position: 50% 20%; }
+
+.paddy-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(180deg, rgba(8,7,6,.35) 0%, rgba(8,7,6,.25) 35%, rgba(8,7,6,.97) 100%);
+}
+
+.icon-compass-hero {
+    position: absolute;
+    top: 210px;
+    right: 16px;
+    width: 70px;
+    height: 70px;
+    z-index: 3;
+    opacity: .5;
+    filter: invert(1);
+    animation: slow-spin-reverse 60s linear infinite;
+}
+
+@keyframes slow-spin-reverse {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+.paddy-hero-content {
+    position: relative;
+    z-index: 3;
+}
+
+.paddy-hero .hero-title {
+    font-size: clamp(64px, 19vw, 130px);
+    margin: 0;
+}
+
+@media (min-width: 900px) {
+    .paddy-hero { padding: 260px 60px 100px; }
+    .icon-compass-hero { top: 260px; right: 60px; width: 100px; height: 100px; }
+}
+
+/* ==========================================================================
+   INTRO STATEMENT
+   ========================================================================== */
+.paddy-statement {
+    padding: 70px 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.paddy-statement h2 {
+    font-family: var(--display);
+    font-size: clamp(36px, 10vw, 58px);
+    line-height: .95;
+    text-transform: uppercase;
+    margin: 0 0 20px;
+}
+
+.paddy-statement p {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--black-45);
+    max-width: 620px;
+    margin: 0;
+}
+
+@media (min-width: 900px) {
+    .paddy-statement { padding: 120px 60px; max-width: var(--max); margin: 0 auto; }
+    .paddy-statement h2 { max-width: 720px; }
+}
+
+/* ==========================================================================
+   DIE GESCHICHTE
+   ========================================================================== */
+.paddy-story {
+    padding: 80px 16px 60px;
+}
+
+.paddy-story .section-intro span {
+    display: block;
+    color: var(--yellow);
+    font-family: var(--display);
+    font-size: 15px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.paddy-story .section-intro h2 {
+    font-family: var(--display);
+    font-size: clamp(42px, 12vw, 66px);
+    line-height: .9;
+    text-transform: uppercase;
+    margin: 0 0 36px;
+}
+
+.paddy-story-body p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--cream-75);
+    max-width: 640px;
+    margin: 0 0 20px;
+}
+
+.paddy-quote {
+    margin: 50px 0 0;
+    padding: 30px 0 0;
+    border-top: 1px solid var(--cream-20);
+}
+
+.paddy-quote p {
+    font-family: var(--display);
+    font-size: clamp(28px, 8vw, 42px);
+    line-height: 1.15;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin: 0 0 12px;
+    max-width: 720px;
+}
+
+.paddy-quote cite {
+    font-style: normal;
+    font-size: 13px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--cream-55);
+}
+
+@media (min-width: 900px) {
+    .paddy-story { padding: 140px 60px 80px; max-width: var(--max); margin: 0 auto; }
+    .paddy-story-body { max-width: 680px; }
+}
+
+/* ==========================================================================
+   WAS IHN ANTREIBT
+   ========================================================================== */
+.paddy-drivers {
+    padding: 80px 16px;
+}
+
+.paddy-drivers .section-intro span {
+    display: block;
+    color: var(--red);
+    font-family: var(--display);
+    font-size: 15px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.paddy-drivers .section-intro h2 {
+    font-family: var(--display);
+    font-size: clamp(38px, 11vw, 58px);
+    line-height: .92;
+    text-transform: uppercase;
+    margin: 0 0 40px;
+}
+
+.paddy-driver-grid {
+    display: grid;
+    gap: 36px;
+}
+
+.paddy-driver .driver-icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 14px;
+}
+
+.paddy-driver h3 {
+    font-family: var(--display);
+    font-size: clamp(28px, 8vw, 36px);
+    text-transform: uppercase;
+    margin: 0 0 8px;
+    line-height: .95;
+}
+
+.paddy-driver p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--black-45);
+    margin: 0;
+    max-width: 340px;
+}
+
+@media (min-width: 900px) {
+    .paddy-drivers { padding: 130px 60px; max-width: var(--max); margin: 0 auto; }
+    .paddy-driver-grid { grid-template-columns: repeat(3, 1fr); gap: 50px; }
+}
+
+/* ==========================================================================
+   BILDSTRECKE
+   ========================================================================== */
+.paddy-gallery {
+    padding: 16px;
+    display: grid;
+    gap: 14px;
+}
+
+.paddy-photo {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 14px;
+    background: var(--black-soft);
+}
+
+.photo-a { aspect-ratio: 3 / 4; }
+.photo-b { aspect-ratio: 3 / 4; }
+.photo-c { aspect-ratio: 3 / 4; }
+
+.icon-wheel-gallery {
+    position: absolute;
+    z-index: 2;
+    bottom: 16px;
+    right: 16px;
+    width: 70px;
+    height: 70px;
+    opacity: .9;
+    filter: invert(1) drop-shadow(0 4px 10px rgba(0,0,0,.5));
+    pointer-events: none;
+}
+
+@media (min-width: 700px) {
+    .paddy-gallery { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 900px) {
+    .paddy-gallery { padding: 40px 60px 100px; max-width: var(--max); margin: 0 auto; grid-template-columns: repeat(3, 1fr); }
+    .photo-a, .photo-b, .photo-c { aspect-ratio: 4 / 5; }
+}
+
+/* ==========================================================================
+   FIXIERTE MOBILE NAVI-LEISTE (identisch zu FAQ / Atelier / Works)
+   ========================================================================== */
+.mobile-nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    background: rgba(20, 18, 16, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(244, 237, 217, 0.1);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 14px 4px;
+    z-index: 9999;
+}
+
+.mobile-nav-bar a {
+    text-decoration: none;
+    font-family: var(--text);
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--cream-55);
+    text-transform: uppercase;
+    flex: 1;
+    text-align: center;
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease;
+}
+
+.mobile-nav-bar a.active { color: var(--red) !important; }
+
+@media (min-width: 900px) {
+    .mobile-nav-bar {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+}
+
+.page-noise,
+.cursor,
+[class*="noise"],
+[class*="overlay"] {
+    pointer-events: none !important;
+}
+
+.about-main-content {
+    position: relative !important;
+    z-index: 10 !important;
+    pointer-events: auto !important;
+}
+
+.footer {
+    position: relative !important;
+    z-index: 999999 !important;
+    clear: both !important;
+    display: block !important;
+    pointer-events: auto !important;
+}
+
+.footer a {
+    position: relative !important;
+    z-index: 9999999 !important;
+    pointer-events: auto !important;
+}

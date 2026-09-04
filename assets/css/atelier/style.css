@@ -1,0 +1,383 @@
+/* ==========================================================================
+   ATELIER-SEITE
+   Nutzt Variablen & Grundklassen aus assets/css/home/style.css
+   ========================================================================== */
+
+.atelier-page { padding-bottom: 70px; }
+
+/* ==========================================================================
+   UNIFORME LOGO- & HEADER-SKALIERUNG (identisch zu FAQ / Vibe-Check)
+   ========================================================================== */
+header.site-header,
+.site-header {
+    height: auto !important;
+    min-height: 190px !important;
+    padding: 20px 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.brand,
+header .brand,
+.site-header .brand {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: none !important;
+}
+
+img.brand-logo,
+.brand-logo,
+.brand img {
+    width: 160px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+    object-fit: contain !important;
+    max-height: none !important;
+    transform: scale(1) !important;
+}
+
+@media (min-width: 900px) {
+    header.site-header,
+    .site-header {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 240px !important;
+        min-height: 240px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 0 40px !important;
+        z-index: 100 !important;
+        pointer-events: none !important;
+    }
+
+    header.site-header a,
+    header.site-header nav,
+    .site-header a,
+    .site-header nav {
+        pointer-events: auto !important;
+    }
+
+    img.brand-logo,
+    .brand-logo,
+    .brand img {
+        width: 250px !important;
+        height: auto !important;
+        transform: scale(1.25) !important;
+        margin: 0 0 0 30px !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .menu-toggle,
+    .site-header .nav,
+    [id*="menu-overlay"],
+    .menu-backdrop {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+    .site-header { justify-content: center !important; }
+}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.atelier-hero {
+    position: relative;
+    min-height: 78vh;
+    display: flex;
+    align-items: flex-end;
+    padding: calc(190px + 20px) 16px 60px;
+    overflow: hidden;
+}
+
+.atelier-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.atelier-hero-bg img { object-position: center 30%; }
+
+.atelier-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(180deg, rgba(8,7,6,.55) 0%, rgba(8,7,6,.35) 40%, rgba(8,7,6,.95) 100%);
+}
+
+.atelier-hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 640px;
+}
+
+.atelier-hero .hero-title {
+    font-size: clamp(56px, 16vw, 90px);
+    margin: 0 0 16px;
+}
+
+.atelier-hero .hero-description {
+    max-width: 440px;
+}
+
+@media (min-width: 900px) {
+    .atelier-hero {
+        min-height: 90vh;
+        padding: 260px 60px 100px;
+    }
+    .atelier-hero-content { max-width: 720px; }
+}
+
+/* ==========================================================================
+   INTRO / PHILOSOPHIE
+   ========================================================================== */
+.atelier-intro {
+    padding: 80px 16px;
+    display: grid;
+    gap: 20px;
+}
+
+.atelier-intro-left span {
+    font-family: var(--display);
+    font-size: 18px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--yellow);
+}
+
+.atelier-intro-right h2 {
+    font-family: var(--display);
+    font-size: clamp(40px, 11vw, 64px);
+    line-height: .9;
+    text-transform: uppercase;
+    margin: 0 0 20px;
+}
+
+.atelier-intro-right p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--cream-75);
+    max-width: 640px;
+    margin: 0 0 16px;
+}
+
+@media (min-width: 900px) {
+    .atelier-intro {
+        grid-template-columns: 0.5fr 1.5fr;
+        gap: 60px;
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 140px 60px;
+    }
+}
+
+/* ==========================================================================
+   BILDSTRECKE
+   ========================================================================== */
+.atelier-gallery {
+    padding: 90px 16px 100px;
+}
+
+.atelier-gallery .section-intro {
+    margin-bottom: 40px;
+}
+
+.atelier-gallery .section-intro span {
+    display: block;
+    color: var(--yellow);
+    font-family: var(--display);
+    font-size: 15px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.atelier-gallery .section-intro h2 {
+    font-family: var(--display);
+    font-size: clamp(40px, 11vw, 60px);
+    line-height: .9;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.atelier-photo-stack {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 32px;
+}
+
+.atelier-photo {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 14px;
+    background: var(--black-soft);
+}
+
+.photo-large { aspect-ratio: 4 / 5; }
+.photo-detail { aspect-ratio: 1 / 1; }
+.photo-wide { aspect-ratio: 16 / 11; }
+
+.atelier-icon {
+    position: absolute;
+    z-index: 2;
+    width: 90px;
+    height: 90px;
+    opacity: .92;
+    pointer-events: none;
+    filter: invert(1) drop-shadow(0 4px 10px rgba(0,0,0,.5));
+}
+
+.icon-wheel { bottom: 14px; right: 14px; animation: slow-spin 40s linear infinite; }
+.icon-anchor { top: 14px; right: 14px; width: 64px; height: 64px; opacity: .8; }
+
+@keyframes slow-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.atelier-gallery-note {
+    max-width: 560px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--cream-55);
+    font-style: italic;
+}
+
+@media (min-width: 700px) {
+    .atelier-photo-stack {
+        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-rows: auto auto;
+    }
+    .photo-large { grid-row: 1 / 3; }
+    .photo-wide { grid-column: 2; }
+}
+
+@media (min-width: 900px) {
+    .atelier-gallery { padding: 100px 60px 140px; max-width: var(--max); margin: 0 auto; }
+}
+
+/* ==========================================================================
+   ATELIER-WERTE (3er-Reihe)
+   ========================================================================== */
+.atelier-values {
+    padding: 70px 16px;
+    display: grid;
+    gap: 40px;
+}
+
+.atelier-value .number {
+    display: block;
+    font-family: var(--display);
+    font-size: 34px;
+    color: var(--cream);
+    opacity: .6;
+    margin-bottom: 6px;
+}
+
+.atelier-value h3 {
+    font-family: var(--display);
+    font-size: clamp(32px, 9vw, 44px);
+    text-transform: uppercase;
+    margin: 0 0 8px;
+    line-height: .95;
+}
+
+.atelier-value p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--cream-75);
+    margin: 0;
+    max-width: 420px;
+}
+
+@media (min-width: 900px) {
+    .atelier-values {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 100px 60px;
+    }
+}
+
+/* ==========================================================================
+   FIXIERTE MOBILE NAVI-LEISTE (identisch zu FAQ)
+   ========================================================================== */
+.mobile-nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    background: rgba(20, 18, 16, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(244, 237, 217, 0.1);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 14px 4px;
+    z-index: 9999;
+}
+
+.mobile-nav-bar a {
+    text-decoration: none;
+    font-family: var(--text);
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--cream-55);
+    text-transform: uppercase;
+    flex: 1;
+    text-align: center;
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease;
+}
+
+.mobile-nav-bar a.active { color: var(--red) !important; }
+
+@media (min-width: 900px) {
+    .mobile-nav-bar {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+}
+
+/* Overlays dürfen Klicks nicht blockieren */
+.page-noise,
+.cursor,
+[class*="noise"],
+[class*="overlay"] {
+    pointer-events: none !important;
+}
+
+.atelier-main-content {
+    position: relative !important;
+    z-index: 10 !important;
+    pointer-events: auto !important;
+}
+
+.footer {
+    position: relative !important;
+    z-index: 999999 !important;
+    clear: both !important;
+    display: block !important;
+    pointer-events: auto !important;
+}
+
+.footer a {
+    position: relative !important;
+    z-index: 9999999 !important;
+    pointer-events: auto !important;
+}

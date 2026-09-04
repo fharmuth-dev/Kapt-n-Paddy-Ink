@@ -1,0 +1,439 @@
+:root {
+ --bg-pure-white: #000000;
+ --accent-red: #da1b1b; 
+ --text-dark: #ffffff;
+ --text-muted: #aaaaaa;
+ --font-headline: 'Rubik Distressed', system-ui, sans-serif;
+ --font-body: 'Space Grotesk', sans-serif;
+ --electric-border-color: #00ffff; 
+}
+
+* { 
+ box-sizing: border-box; 
+ margin: 0; 
+ padding: 0;
+ -webkit-tap-highlight-color: transparent;
+}
+
+body {
+ background: #000000;
+ color: var(--text-dark);
+ font-family: var(--font-body);
+ overflow-x: hidden;
+ min-height: 100vh;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: flex-start;
+ position: relative;
+}
+
+/* BRAND HEADER */
+.brand-header {
+ margin-top: 40px;
+ margin-bottom: 25px;
+ text-align: center;
+ z-index: 100;
+}
+
+.brand-logo-img {
+ width: 250px !important;
+ height: auto !important;
+ display: block !important;
+ margin: 0 auto !important;
+ transform: scale(1.25);
+}
+
+/* NAVIGATION FÜR PC */
+.tabs-container {
+ width: 100%;
+ max-width: 900px;
+ margin: 20px auto;
+ padding: 0 20px;
+ z-index: 120;
+}
+
+.tabs-nav {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 15px;
+ flex-wrap: wrap;
+}
+
+.tab-btn {
+ text-decoration: none;
+ background: transparent;
+ border: 1px solid rgba(255, 255, 255, 0.3);
+ font-family: var(--font-headline);
+ font-size: 1.3rem;
+ color: var(--text-dark);
+ cursor: pointer;
+ padding: 15px 30px;
+ transition: all 0.2s ease;
+ text-transform: uppercase;
+ display: inline-block;
+ text-align: center;
+}
+
+.tab-btn:hover {
+ border-color: var(--text-dark);
+ background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+ background: #e5a93b; 
+ color: #111111 !important;
+ border: 1px solid #111111;
+ box-shadow: 4px 4px 0px #da1b1b; 
+ transform: translate(-2px, -2px);
+}
+
+/* ELECTRIC BORDER CONTAINER */
+.electric-border {
+ position: relative;
+ width: 100%;
+ max-width: 550px; 
+ margin: 10px 20px 60px 20px;
+ border-radius: 20px;
+ z-index: 10;
+ will-change: transform;
+ backface-visibility: hidden;
+ -webkit-backface-visibility: hidden;
+}
+
+.eb-canvas-container {
+ position: absolute;
+ inset: -35px;
+ pointer-events: none;
+ z-index: 5;
+}
+
+.eb-canvas { 
+ width: 100%;
+ height: 100%;
+ display: block;
+}
+
+.eb-content {
+ position: relative;
+ border-radius: 20px;
+ background: rgba(30, 30, 30, 0.85);
+ backdrop-filter: blur(16px);
+ -webkit-backdrop-filter: blur(16px);
+ border: 1px solid rgba(255, 255, 255, 0.08);
+ padding: 50px 40px;
+ z-index: 2;
+ box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+ overflow: hidden;
+ min-height: 420px;
+ display: flex;
+ align-items: center;
+ backface-visibility: hidden;
+ -webkit-backface-visibility: hidden;
+}
+
+.eb-layers {
+ position: absolute;
+ inset: 0;
+ border-radius: inherit;
+ pointer-events: none;
+ z-index: 1;
+}
+
+.eb-background-glow {
+ position: absolute; 
+ inset: -2px; 
+ border-radius: inherit;
+ z-index: -1; 
+ filter: blur(25px); 
+ opacity: 0.25;
+ background: var(--electric-border-color);
+}
+
+/* FORM INTERFACES */
+.vibe-container { 
+ width: 100%; 
+ position: relative;
+}
+
+.step-card { 
+ display: none; 
+ width: 100%; 
+ will-change: transform, opacity;
+ backface-visibility: hidden;
+ -webkit-backface-visibility: hidden;
+}
+
+.step-card.active { 
+ display: block; 
+}
+
+.step-header-nav { 
+ display: flex; 
+ align-items: center; 
+ gap: 14px; 
+ margin-bottom: 20px; 
+}
+
+.num-badge { 
+ font-family: var(--font-body); 
+ font-weight: 700; 
+ color: var(--accent-red); 
+ font-size: 0.9rem; 
+ letter-spacing: 2px; 
+}
+
+.back-btn {
+ background: transparent; 
+ border: none; 
+ color: #aaa;
+ font-family: var(--font-body); 
+ font-size: 1.2rem; 
+ font-weight: 700;
+ cursor: pointer; 
+ transition: color 0.2s;
+}
+
+.back-btn:hover { 
+ color: var(--text-dark); 
+}
+
+.step-title {
+ font-family: var(--font-headline) !important;
+ font-size: 3rem;
+ line-height: 1.1;
+ margin-bottom: 20px;
+ text-transform: uppercase;
+}
+
+.step-sub {
+ font-family: var(--font-body); 
+ font-size: 1.1rem; 
+ color: #ccc; 
+ line-height: 1.5; 
+ margin-bottom: 40px;
+}
+
+.input-field {
+ width: 100%; 
+ background: transparent; 
+ border: none;
+ border-bottom: 3px solid rgba(255,255,255,0.2); 
+ padding: 12px 0;
+ color: var(--text-dark) !important; 
+ outline: none; 
+ margin-bottom: 40px;
+ text-transform: uppercase; 
+ font-family: var(--font-headline) !important; 
+ font-size: 2rem;
+ border-radius: 0;
+}
+
+textarea.input-field {
+ font-family: var(--font-body) !important;
+ font-size: 1.1rem;
+ text-transform: none;
+ border: 2px solid rgba(255,255,255,0.2);
+ padding: 15px;
+ border-radius: 8px;
+}
+
+.active-shimmer-line { 
+ border-bottom: 3px solid var(--electric-border-color) !important; 
+}
+textarea.input-field.active-shimmer-line {
+ border-color: var(--electric-border-color) !important;
+}
+
+.action-btn {
+ background: #ffffff; 
+ color: #111111; 
+ border: none; 
+ padding: 20px; 
+ width: 100%;
+ font-family: var(--font-headline) !important; 
+ font-size: 1.4rem;
+ cursor: pointer; 
+ border-radius: 8px; 
+ transition: all 0.2s;
+}
+
+.action-btn:hover { 
+ background: var(--electric-border-color); 
+ color: #000;
+}
+
+.select-stack { 
+ display: flex; 
+ flex-direction: column; 
+ gap: 12px; 
+ margin-bottom: 35px; 
+}
+
+.option-btn {
+ background: rgba(255,255,255,0.05); 
+ border: 2px solid rgba(255,255,255,0.1); 
+ padding: 18px;
+ color: var(--text-dark); 
+ text-align: left; 
+ font-family: var(--font-headline) !important; 
+ font-size: 1.3rem;
+ cursor: pointer; 
+ border-radius: 8px;
+}
+
+.option-btn.selected { 
+ background: var(--text-dark); 
+ color: #111111; 
+}
+
+.search-wrapper { 
+ position: relative; 
+ width: 100%; 
+}
+
+.search-results {
+ position: absolute; 
+ bottom: -10px; 
+ left: 0; 
+ width: 100%;
+ background: #222222; 
+ border: 2px solid rgba(255,255,255,0.1);
+ z-index: 100; 
+ display: none; 
+ max-height: 200px; 
+ overflow-y: auto;
+ transform: translateY(-100%); 
+ border-radius: 8px;
+ box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.search-item { 
+ padding: 12px 20px; 
+ cursor: pointer; 
+ font-size: 1.2rem; 
+ font-family: var(--font-body); 
+ color: var(--text-dark);
+}
+
+.search-item:hover { 
+ background: var(--electric-border-color); 
+ color: #000;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+ body {
+   padding-bottom: 100px; 
+ }
+
+ .brand-header { margin-top: 25px; }
+ .brand-logo-img { 
+   width: 160px !important; 
+   transform: scale(1); 
+ }
+  
+ .electric-border { 
+   width: calc(95% - 20px);
+   max-width: 95%;
+   margin: 15px auto 100px auto; 
+   left: 0;
+   right: 0;
+ }
+  
+ .eb-content { 
+   padding: 30px 20px; 
+   border-radius: 16px; 
+   background: #222222; 
+   border: 2px solid rgba(255,255,255,0.05); 
+   min-height: 380px;
+ }
+  
+ .step-title { font-size: 2.2rem; }
+
+ .tabs-container {
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   width: 100vw;
+   max-width: 100vw;
+   margin: 0;
+   padding: 0;
+   background: rgba(20, 20, 20, 0.95);
+   backdrop-filter: blur(10px);
+   -webkit-backdrop-filter: blur(10px);
+   border-top: 1px solid rgba(255, 255, 255, 0.1);
+   box-shadow: 0 -4px 15px rgba(0,0,0,0.3);
+   z-index: 9999;
+ }
+
+ .tabs-nav {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   gap: 0;
+   padding: 10px 5px;
+ }
+
+ .tab-btn {
+   border: none !important;
+   background: transparent !important;
+   box-shadow: none !important;
+   transform: none !important;
+   padding: 8px 4px;
+   font-size: 0.72rem;
+   font-family: var(--font-body);
+   font-weight: 700;
+   color: #888888;
+   flex: 1;
+   text-align: center;
+ }
+
+ .tab-btn.active {
+   color: var(--accent-red) !important;
+ }
+}
+
+/* ==========================================================================
+   FOOTER (bislang gefehlt — ohne diese Regeln blieb die Fußzeile unsichtbar,
+   da diese Seite bewusst kein globales style.css lädt)
+   ========================================================================== */
+.footer {
+ width: 100%;
+ max-width: 900px;
+ margin: 40px auto 0;
+ padding: 32px 20px;
+ border-top: 1px solid rgba(255, 255, 255, 0.1);
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 14px;
+ text-align: center;
+ font-size: 12px;
+ text-transform: uppercase;
+ letter-spacing: 0.05em;
+ color: rgba(255, 255, 255, 0.4);
+ position: relative;
+ z-index: 20;
+}
+
+.footer nav {
+ display: flex;
+ gap: 20px;
+}
+
+.footer nav a {
+ color: rgba(255, 255, 255, 0.6);
+ text-decoration: none;
+ transition: color 0.2s ease;
+}
+
+.footer nav a:hover {
+ color: var(--text-dark);
+}
+
+@media (max-width: 900px) {
+ /* Genug Abstand zur fixierten Tab-Leiste am unteren Rand */
+ .footer { margin-bottom: 90px; }
+}
