@@ -346,7 +346,7 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
   min-height: 100svh; position: relative; overflow: hidden;
 
-  display: flex; align-items: flex-end; padding: calc(var(--header) + 20px) 16px 40px;
+  display: flex; flex-direction: column; align-items: stretch; padding: calc(var(--header) + 20px) 16px 40px;
 
   z-index: 1;
 
@@ -371,10 +371,6 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
   background: var(--black);
 
-  opacity: 1.0;                                     
-
-  filter: brightness(82%) blur(0);           
-
   pointer-events: none;
 
   overflow: hidden;
@@ -389,10 +385,15 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
   top: 0; right: 0; bottom: 0; left: 0; inset: 0;
 
-  /* Oben jetzt deutlich abgedunkelt (vorher zu hell: 15%), damit die
-     Überschrift immer lesbar bleibt, egal wie das Bild positioniert ist.
-     In der Mitte heller, damit das Motiv trotzdem sichtbar bleibt. */
-  background: linear-gradient(180deg, rgba(8,7,6,.8) 0%, rgba(8,7,6,.78) 12%, rgba(8,7,6,.4) 32%, rgba(8,7,6,.4) 55%, rgba(8,7,6,.92) 100%);
+  /* Oben fast durchsichtig, damit das Foto voll zur Geltung kommt.
+     Ab ca. 42% durchgängig dunkel — genau dort beginnt der Textblock,
+     der dadurch unabhängig vom Bildinhalt darunter immer lesbar bleibt. */
+  background: linear-gradient(180deg,
+    rgba(8,7,6,.35) 0%,
+    rgba(8,7,6,.15) 22%,
+    rgba(8,7,6,.35) 42%,
+    rgba(8,7,6,.88) 58%,
+    rgba(8,7,6,.97) 100%);
 
 }
 
@@ -406,45 +407,36 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
   object-fit: cover !important;
 
-  object-position: 20% center;              
+  object-position: center 15%;
 
   top: 0; right: 0; bottom: 0; left: 0; inset: 0;
 
-  transform: scaleX(-1);
-
 }
 
-.animate-ambient { transform: scaleX(-1) scale(1.1) !important; }
+/* Sehr langsamer, dezenter Zoom fürs Ladeerlebnis — macht das Hero-Bild
+   lebendiger, ohne aufdringlich zu wirken. */
+@keyframes slow-hero-zoom {
+  from { transform: scale(1.12); }
+  to { transform: scale(1); }
+}
 
-/* .progressive-img.loaded (Spezifität 0,2,0) schlägt sonst .animate-ambient
-   (0,1,0) und setzt transform: scale(1) !important, wodurch die Spiegelung
-   verloren ginge. Diese Regel braucht daher mindestens 3 Klassen Spezifität,
-   um in jedem Ladezustand zuverlässig zu gewinnen. */
-.mobile-hero-ambient-bg img.progressive-img { transform: scaleX(-1) !important; }
-.mobile-hero-ambient-bg img.progressive-img.animate-ambient { transform: scaleX(-1) scale(1.1) !important; }
+.mobile-hero-ambient-bg img.animate-ambient.loaded {
+  animation: slow-hero-zoom 12s cubic-bezier(.16,1,.3,1) forwards;
+}
 
 
-.hero-grid { width: 100%; display: flex; flex-direction: column; gap: 20px; z-index: 2; position: relative; }
+.hero-grid { width: 100%; display: flex; flex-direction: column; justify-content: flex-end; min-height: calc(100svh - var(--header) - 40px); gap: 20px; z-index: 2; position: relative; }
 
 .tiny-label { margin: 0 0 12px; color: var(--yellow); font-size: 11px; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
 
 
-.hero-title { margin: 0 0 16px 0; font-family: var(--display); font-size: clamp(52px, 14vw, 85px); line-height: 0.85; text-transform: uppercase; display: flex; flex-direction: column; text-shadow: 0 2px 24px rgba(0,0,0,.55); }
+.hero-title { margin: 0 0 16px 0; font-family: var(--display); font-size: clamp(52px, 14vw, 85px); line-height: 0.85; text-transform: uppercase; display: flex; flex-direction: column; text-shadow: 0 2px 20px rgba(0,0,0,.4); }
 
 .title-row-1 { align-self: flex-start; }
 
 .title-row-2 { align-self: flex-start; padding-left: 20px; color: var(--cream-75); font-size: 0.9em; }
 
 .title-row-3 { align-self: flex-end; color: var(--yellow); }
-
-
-.mobile-hero-img-container {
-
-  width: 100%; height: 380px; max-height: 50vh; border-radius: 20px; 
-
-  box-shadow: 0 15px 35px rgba(0,0,0,0.6); margin-bottom: 8px;
-
-}
 
 
 .hero-description { max-width: 100%; margin: 0 0 24px; color: var(--cream-75); font-size: 15px; line-height: 1.6; }
