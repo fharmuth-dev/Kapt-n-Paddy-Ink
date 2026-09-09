@@ -385,11 +385,12 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
   top: 0; right: 0; bottom: 0; left: 0; inset: 0;
 
-  /* Sanfte Grund-Abdunklung übers ganze Bild, nur für Stimmung — die
-     eigentliche Text-Lesbarkeit übernimmt jetzt .hero-grid::before,
-     das sich exakt an die tatsächliche Höhe des Textblocks anpasst
-     statt an geschätzten Prozentwerten. */
-  background: linear-gradient(180deg, rgba(8,7,6,.25) 0%, rgba(8,7,6,.1) 30%, rgba(8,7,6,.35) 100%);
+  /* Gleichmäßiger Schleier übers GANZE Bild — exakt wie am Desktop
+     (.pc-hero-overlay, 72%). Das Bild bleibt dadurch als EIN durchgehendes
+     Foto lesbar, statt optisch in "Bild oben / schwarzer Kasten unten"
+     zu zerfallen. Text ist überall gleich gut lesbar, unabhängig von
+     Textlänge oder Bildinhalt darunter. */
+  background: rgba(8,7,6,.68);
 
 }
 
@@ -414,32 +415,9 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
 .hero-grid { width: 100%; display: flex; flex-direction: column; justify-content: flex-end; min-height: calc(100svh - var(--header) - 40px); gap: 20px; z-index: 2; position: relative; }
 
-.hero-grid::before {
-
-  content: "";
-
-  position: absolute;
-
-  /* Reicht bewusst über den Textblock hinaus: oben als weicher Übergang,
-     seitlich/unten bis zum Bildschirmrand (gleicht das 16px-Padding von
-     .hero aus). So passt sich das Dunkel immer exakt an die tatsächliche
-     Höhe von Titel + Beschreibung + Button an — egal wie lang der Text
-     mal wird, statt an geschätzten Prozentwerten am Gesamtbild. */
-  top: -90px; right: -16px; bottom: -40px; left: -16px;
-
-  background: linear-gradient(180deg,
-    rgba(8,7,6,0) 0%,
-    rgba(8,7,6,.55) 20%,
-    rgba(8,7,6,.88) 45%,
-    rgba(8,7,6,.96) 100%);
-
-  z-index: -1;
-
-  pointer-events: none;
-
-}
-
 .tiny-label { margin: 0 0 12px; color: var(--yellow); font-size: 11px; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
+
+.hero .tiny-label, .hero .hero-description { text-shadow: 0 1px 12px rgba(0,0,0,.5); }
 
 
 .hero-title { margin: 0 0 16px 0; font-family: var(--display); font-size: clamp(52px, 14vw, 85px); line-height: 0.85; text-transform: uppercase; display: flex; flex-direction: column; text-shadow: 0 2px 20px rgba(0,0,0,.4); }
