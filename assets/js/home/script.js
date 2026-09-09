@@ -105,8 +105,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (pcBg) criticalImagesToWatch.push(pcBg); 
     if (pcDetail) criticalImagesToWatch.push(pcDetail); 
   } else { 
-    // Auf dem Smartphone MUSS das Haupt-Vordergrundbild geladen sein 
-    const mobileImg = document.querySelector('.mobile-hero-img-container .progressive-img'); 
+    // Auf dem Smartphone MUSS das vollflächige Hero-Bild geladen sein, 
+    // bevor sich die Seite öffnet — sonst startet der Zoom-Effekt zeitversetzt 
+    // und unsynchron zu den übrigen Reveal-Animationen (wirkt dann ruckelig). 
+    const mobileImg = document.querySelector('.mobile-hero-ambient-bg .progressive-img'); 
     if (mobileImg) criticalImagesToWatch.push(mobileImg); 
   } 
 
@@ -176,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // HANDY HERO ENTRANCE 
     activeMedia.add("(max-width: 759px)", () => { 
       const tl = gsap.timeline(); 
-      tl.from(".mobile-hero-img-container img", { scale: 1.1, filter: "blur(10px)", duration: 1.4, ease: "power2.out" }) 
+      tl.from(".mobile-hero-ambient-bg img", { scale: 1.15, duration: 1.8, ease: "power3.out" }) 
       .to(".hero .word-reveal", { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.12 }, "-=0.8"); 
     }); 
   } 

@@ -385,15 +385,11 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
   top: 0; right: 0; bottom: 0; left: 0; inset: 0;
 
-  /* Oben fast durchsichtig, damit das Foto voll zur Geltung kommt.
-     Ab ca. 42% durchgängig dunkel — genau dort beginnt der Textblock,
-     der dadurch unabhängig vom Bildinhalt darunter immer lesbar bleibt. */
-  background: linear-gradient(180deg,
-    rgba(8,7,6,.35) 0%,
-    rgba(8,7,6,.15) 22%,
-    rgba(8,7,6,.35) 42%,
-    rgba(8,7,6,.88) 58%,
-    rgba(8,7,6,.97) 100%);
+  /* Sanfte Grund-Abdunklung übers ganze Bild, nur für Stimmung — die
+     eigentliche Text-Lesbarkeit übernimmt jetzt .hero-grid::before,
+     das sich exakt an die tatsächliche Höhe des Textblocks anpasst
+     statt an geschätzten Prozentwerten. */
+  background: linear-gradient(180deg, rgba(8,7,6,.25) 0%, rgba(8,7,6,.1) 30%, rgba(8,7,6,.35) 100%);
 
 }
 
@@ -411,21 +407,37 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
   top: 0; right: 0; bottom: 0; left: 0; inset: 0;
 
-}
+  will-change: transform;
 
-/* Sehr langsamer, dezenter Zoom fürs Ladeerlebnis — macht das Hero-Bild
-   lebendiger, ohne aufdringlich zu wirken. */
-@keyframes slow-hero-zoom {
-  from { transform: scale(1.12); }
-  to { transform: scale(1); }
-}
-
-.mobile-hero-ambient-bg img.animate-ambient.loaded {
-  animation: slow-hero-zoom 12s cubic-bezier(.16,1,.3,1) forwards;
 }
 
 
 .hero-grid { width: 100%; display: flex; flex-direction: column; justify-content: flex-end; min-height: calc(100svh - var(--header) - 40px); gap: 20px; z-index: 2; position: relative; }
+
+.hero-grid::before {
+
+  content: "";
+
+  position: absolute;
+
+  /* Reicht bewusst über den Textblock hinaus: oben als weicher Übergang,
+     seitlich/unten bis zum Bildschirmrand (gleicht das 16px-Padding von
+     .hero aus). So passt sich das Dunkel immer exakt an die tatsächliche
+     Höhe von Titel + Beschreibung + Button an — egal wie lang der Text
+     mal wird, statt an geschätzten Prozentwerten am Gesamtbild. */
+  top: -90px; right: -16px; bottom: -40px; left: -16px;
+
+  background: linear-gradient(180deg,
+    rgba(8,7,6,0) 0%,
+    rgba(8,7,6,.55) 20%,
+    rgba(8,7,6,.88) 45%,
+    rgba(8,7,6,.96) 100%);
+
+  z-index: -1;
+
+  pointer-events: none;
+
+}
 
 .tiny-label { margin: 0 0 12px; color: var(--yellow); font-size: 11px; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
 
