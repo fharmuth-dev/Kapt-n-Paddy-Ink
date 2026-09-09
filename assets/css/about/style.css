@@ -307,6 +307,8 @@ img.brand-logo,
 .photo-a { aspect-ratio: 3 / 4; }
 .photo-b { aspect-ratio: 3 / 4; }
 .photo-c { aspect-ratio: 3 / 4; }
+.photo-d { aspect-ratio: 3 / 4; }
+.photo-e { aspect-ratio: 3 / 4; }
 
 .icon-wheel-gallery {
     position: absolute;
@@ -326,7 +328,7 @@ img.brand-logo,
 
 @media (min-width: 900px) {
     .paddy-gallery { padding: 40px 60px 100px; max-width: var(--max); margin: 0 auto; grid-template-columns: repeat(3, 1fr); }
-    .photo-a, .photo-b, .photo-c { aspect-ratio: 4 / 5; }
+    .photo-a, .photo-b, .photo-c, .photo-d, .photo-e { aspect-ratio: 4 / 5; }
 }
 
 /* ==========================================================================
