@@ -253,15 +253,18 @@ document.addEventListener("DOMContentLoaded", () => {
         { clipPath: "inset(12% 15% 12% 15% round 12px)" }, 
         { clipPath: "inset(0% 0% 0% 0% round 0px)", duration: 1.6, ease: "power4.inOut" } 
       ) 
-      .from(".pc-hero-bg", { scale: 1.15, duration: 1.8, ease: "power3.out" }, "<") 
       .to(".hero .word-reveal", { opacity: 1, y: 0, duration: 1, ease: "power3.out", stagger: 0.15 }, "-=0.6"); 
     }); 
 
     // HANDY HERO ENTRANCE 
+    // (Kein Zoom/Scale-Effekt mehr auf dem Foto — das Bild steht sofort in
+    // finaler Größe da. Grund: die vorherige 1,8s-Zoom-Einblendung lief oft
+    // noch, während Nutzer bereits zu scrollen begannen, was wie eine vom
+    // Scrollen ausgelöste Größenänderung wirkte, obwohl es reine Ladezeit-
+    // Koinzidenz war. Text-Stagger und Detailbild-Einblendung bleiben.) 
     activeMedia.add("(max-width: 759px)", () => { 
       const tl = gsap.timeline(); 
-      tl.from(".mobile-hero-ambient-bg img", { scale: 1.15, duration: 1.8, ease: "power3.out" }) 
-      .to(".hero .word-reveal", { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.12 }, "-=0.8") 
+      tl.to(".hero .word-reveal", { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.12 }) 
       .to(".mobile-hero-detail", { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, "-=0.35"); 
     }); 
   } 
