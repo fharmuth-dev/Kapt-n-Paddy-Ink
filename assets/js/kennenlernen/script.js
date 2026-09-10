@@ -44,6 +44,9 @@ const koerperstellen = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
+
+  // GSAP läuft in diesem Formular ab sofort ausschließlich am Desktop.
+  const isDesktop = window.matchMedia("(min-width: 760px)").matches;
   const canvas = document.getElementById("eb-canvas");
   const container = document.getElementById("eb-container");
 
@@ -188,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Robustheits-Fallback: Falls GSAP nicht verfügbar ist (CDN-Ausfall, Adblocker),
       // wechselt die Karte trotzdem sofort, nur ohne Animation.
-      if (typeof gsap === "undefined") {
+      if (!isDesktop || typeof gsap === "undefined") {
         finishSwap();
         return;
       }
@@ -234,7 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
         currentStep--;
       };
 
-      if (typeof gsap === "undefined") {
+      if (!isDesktop || typeof gsap === "undefined") {
         finishSwap();
         return;
       }

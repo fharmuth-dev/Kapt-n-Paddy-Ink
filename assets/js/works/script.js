@@ -1,10 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     /* Preloader zügig ausblenden */
+    const isDesktop = window.matchMedia("(min-width: 760px)").matches;
     const preloader = document.getElementById("smart-preloader");
     if (preloader) {
         setTimeout(() => {
-            if (typeof gsap !== "undefined") {
+            if (isDesktop && typeof gsap !== "undefined") {
                 gsap.to(preloader, {
                     yPercent: -100,
                     duration: 1,
@@ -15,8 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 });
             } else {
-                preloader.style.display = "none";
-                document.body.classList.remove("preloader-active");
+                preloader.style.transition = "opacity .5s ease";
+                preloader.style.opacity = "0";
+                setTimeout(() => {
+                    preloader.style.display = "none";
+                    document.body.classList.remove("preloader-active");
+                }, 500);
             }
         }, 350);
     }
