@@ -417,6 +417,37 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 .hero .tiny-label, .hero .hero-description { text-shadow: 0 1px 12px rgba(0,0,0,.5); }
 
 
+.hero-main-content {
+
+  position: relative;
+
+}
+
+/* Zusätzlicher, weicher Kontrast-Schein NUR hinter Label + Überschrift —
+   kein Kasten, keine harte Kante, verläuft weich ins Foto. Löst die
+   Lesbarkeit zuverlässig, unabhängig von Zeilenumbruch/Bildschirmgröße,
+   ohne backdrop-filter (Performance) und ohne einen durchgehenden Balken
+   (der das Bild optisch zerschneiden würde). NUR mobil — der Desktop-Hero
+   nutzt ein eigenes, bereits fertiges Overlay und wird hier bewusst
+   ausgeklammert. */
+@media (max-width: 759px) {
+  .hero-main-content::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: -20px; right: -20px; top: -24px; bottom: -24px;
+
+    background: radial-gradient(ellipse 90% 100% at center, rgba(8,7,6,.72) 0%, rgba(8,7,6,.5) 45%, rgba(8,7,6,0) 78%);
+
+    z-index: -1;
+
+    pointer-events: none;
+
+  }
+}
+
 .hero-title { margin: 0 0 16px 0; font-family: var(--display); font-size: clamp(52px, 14vw, 85px); line-height: 0.85; text-transform: uppercase; display: flex; flex-direction: column; text-shadow: 0 2px 20px rgba(0,0,0,.4); }
 
 .title-row-1 { align-self: flex-start; }
