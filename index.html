@@ -8,6 +8,15 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
 
+  <script>
+    /* Friert die Bildschirmhöhe EINMALIG beim allerersten Laden ein
+       (als CSS-Variable --locked-vh). Läuft bewusst synchron, ganz am
+       Anfang, unabhängig von GSAP/Preloader/allem anderen — damit sich
+       .hero (der große Handy-Aufmacher) NIE mehr durch ein- oder
+       ausblendende Browser-Symbolleisten in der Höhe verändert, während
+       gescrollt wird. */
+    document.documentElement.style.setProperty('--locked-vh', window.innerHeight + 'px');
+  </script>
 
   <title>Kapt'n Paddy Ink — Mut ist der Anfang von Freiheit</title> 
 

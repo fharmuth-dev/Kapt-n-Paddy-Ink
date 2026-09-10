@@ -36,7 +36,7 @@
 
   --max: 1200px;
 
-  --header: 80px;
+  --header: 130px;
 
 }
 
@@ -291,9 +291,13 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
 .brand { color: var(--cream); font-family: var(--display); font-size: 26px; line-height: .85; letter-spacing: .02em; text-transform: uppercase; display: block; }
 
-.brand-logo { display: block; height: 46px; width: auto; }
+.brand-logo { display: block; height: 88px; width: auto; }
 
-@media (min-width: 900px) { .brand-logo { height: 92px; } }
+@media (min-width: 900px) { .brand-logo { height: 250px; } }
+
+@media (max-width: 899px) {
+  .site-header { justify-content: center; }
+}
 
 
 .menu-toggle {
@@ -330,9 +334,16 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
 .hero {
 
-  min-height: 100vh; /* Fallback für ältere iOS-Safari-Versionen, die svh nicht kennen */
+  min-height: 100vh; /* Fallback, falls JS deaktiviert ist */
 
-  min-height: 100svh; position: relative; overflow: hidden;
+  min-height: 100svh;
+
+  min-height: var(--locked-vh, 100svh); /* Von JS einmalig fest eingefroren
+    (siehe home/script.js) — verhindert zuverlässig JEDES Wachsen/Schrumpfen
+    während des Scrollens durch ein- und ausblendende Browser-Symbolleisten,
+    unabhängig davon, wie einzelne Browser svh/dvh interpretieren. */
+
+  position: relative; overflow: hidden;
 
   display: flex; flex-direction: column; align-items: stretch; padding: calc(var(--header) + 20px) 16px 40px;
 
@@ -399,7 +410,7 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 }
 
 
-.hero-grid { width: 100%; display: flex; flex-direction: column; justify-content: flex-end; min-height: calc(100svh - var(--header) - 40px); gap: 20px; z-index: 2; position: relative; }
+.hero-grid { width: 100%; display: flex; flex-direction: column; justify-content: flex-end; min-height: calc(var(--locked-vh, 100svh) - var(--header) - 40px); gap: 20px; z-index: 2; position: relative; }
 
 .tiny-label { margin: 0 0 12px; color: var(--yellow); font-size: 11px; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
 
