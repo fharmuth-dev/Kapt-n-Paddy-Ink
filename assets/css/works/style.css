@@ -284,8 +284,6 @@ img.brand-logo,
     left: 0;
     width: 100vw;
     background: rgba(20, 18, 16, 0.98);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     border-top: 1px solid rgba(244, 237, 217, 0.1);
     display: flex;
     justify-content: space-around;
