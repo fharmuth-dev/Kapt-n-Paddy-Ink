@@ -55,6 +55,12 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.set(elem, { opacity: 0, y: 22 }); 
   }); 
 
+  // Neues mobiles Detailbild: gleiche Vor-Verstecken-Logik wie oben, damit es
+  // nicht erst normal sichtbar aufblitzt und dann beim Timeline-Start auf
+  // opacity:0 "springt", bevor es einblendet (würde wie ein Ruckler wirken).
+  const mobileHeroDetailEl = document.querySelector(".mobile-hero-detail"); 
+  if (mobileHeroDetailEl) gsap.set(mobileHeroDetailEl, { opacity: 0, y: 28 }); 
+
   function triggerScrollTriggerAnimations() { 
     gsap.utils.toArray(".word-reveal, .line-reveal, .reveal-text").forEach(elem => { 
       if (!elem.closest('.hero')) { 
@@ -179,7 +185,8 @@ document.addEventListener("DOMContentLoaded", () => {
     activeMedia.add("(max-width: 759px)", () => { 
       const tl = gsap.timeline(); 
       tl.from(".mobile-hero-ambient-bg img", { scale: 1.15, duration: 1.8, ease: "power3.out" }) 
-      .to(".hero .word-reveal", { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.12 }, "-=0.8"); 
+      .to(".hero .word-reveal", { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.12 }, "-=0.8") 
+      .to(".mobile-hero-detail", { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, "-=0.35"); 
     }); 
   } 
 

@@ -305,6 +305,8 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
 .brand-logo { display: block; height: 46px; width: auto; }
 
+.brand-wordmark { display: none; }
+
 @media (min-width: 900px) { .brand-logo { height: 62px; } }
 
 
@@ -385,12 +387,13 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
   top: 0; right: 0; bottom: 0; left: 0; inset: 0;
 
-  /* Gleichmäßiger Schleier übers GANZE Bild — exakt wie am Desktop
-     (.pc-hero-overlay, 72%). Das Bild bleibt dadurch als EIN durchgehendes
-     Foto lesbar, statt optisch in "Bild oben / schwarzer Kasten unten"
-     zu zerfallen. Text ist überall gleich gut lesbar, unabhängig von
-     Textlänge oder Bildinhalt darunter. */
-  background: rgba(8,7,6,.68);
+  /* Gerichteter Schleier statt gleichmäßigem Schwarz-Schleier: Das Motiv
+     hat selbst schon einen fast schwarzen Hintergrund, dadurch verschmilzt
+     es rechts nahtlos mit der Sektionsfarbe. Links (wo Label + Headline
+     sitzen) bleibt es zusätzlich abgedunkelt, damit Text immer sicher
+     lesbar ist — Paddy selbst bleibt dabei klar & kontrastreich sichtbar,
+     statt wie zuvor flächig verschleiert zu werden. */
+  background: linear-gradient(100deg, rgba(8,7,6,.92) 0%, rgba(8,7,6,.72) 20%, rgba(8,7,6,.32) 38%, rgba(8,7,6,0) 56%);
 
 }
 
@@ -404,7 +407,7 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
   object-fit: cover !important;
 
-  object-position: center 15%;
+  object-position: 15% top;
 
   top: 0; right: 0; bottom: 0; left: 0; inset: 0;
 
@@ -835,6 +838,60 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
 /* ==========================================================================
 
+   2b. MOBILE HERO REDESIGN — "Motiv rechts, Text links", kein CTA im
+   ersten Moment. ALLE Regeln hier greifen ausschließlich unterhalb von
+   760px (gleicher Breakpoint wie der Desktop-Block direkt danach), damit
+   die PC-Ansicht garantiert unangetastet bleibt.
+
+   ========================================================================== */
+
+@media (max-width: 759px) {
+
+  /* Header: lesbarer Text-Schriftzug statt des winzigen Logo-Icons.
+     Die Bildmarke (logo.png) hat viel Leerraum um Krone+Schnurrbart,
+     bei 46px Höhe verschwimmt der Schriftzug darin zu einem grauen
+     Fleck. Die Text-Variante nutzt dieselbe Display-Type wie der Rest
+     der Seite und ist sofort lesbar — exakt wie im Referenz-Screenshot. */
+  .brand-logo { display: none; }
+  .brand-wordmark { display: block; font-size: 20px; }
+
+  /* "von Freiheit." bündig links wie "Mut" darüber, statt an den
+     rechten Rand der Zeile gedrückt. */
+  .title-row-3 { align-self: flex-start; }
+
+  /* Platz am unteren Rand, damit das Detailbild nicht unter der
+     fixierten Bottom-Nav verschwindet (gleiche Logik wie beim Footer,
+     der aus demselben Grund 90px Bottom-Padding bekommt). Die Höhen-
+     Formel von .hero-grid wird bewusst mitkorrigiert, sonst würde der
+     Hero um genau die zusätzliche Padding-Differenz über 100svh hinaus
+     wachsen — und am unteren Rand aus dem ersten Bildschirm rutschen. */
+  .hero { padding-bottom: 92px; }
+  .hero-grid { min-height: calc(100svh - var(--header) - 20px - 92px); gap: 32px; }
+
+  /* Beschreibungstext + "Vibe prüfen"-Button erst NACH dem ersten
+     Scroll zeigen, nicht im allerersten Moment: Die Bottom-Nav führt
+     "Vibe Prüfen" ohnehin dauerhaft sichtbar, und der CTA weiter unten
+     auf der Seite (Final-CTA-Sektion) bleibt komplett erhalten. */
+  .hero-text-cta-block, .side-note { display: none; }
+
+  /* Neues Einblick-Foto unten links, während das große Motiv rechts
+     im Hintergrund weiterläuft — zusammen ergibt das exakt den
+     "Text links, starkes Bild rechts"-Aufbau aus dem Screenshot. */
+  .hero-bottom .mobile-hero-detail {
+    display: block;
+    width: 42vw;
+    max-width: 220px;
+    aspect-ratio: 0.5;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0,0,0,.55);
+  }
+  .mobile-hero-detail .progressive-img { object-position: 30% center; }
+}
+
+
+/* ==========================================================================
+
    3. DESKTOP SETUP (PC ONLY ARCHITEKTUR - BLEIBT UNANGETASTET)
 
    ========================================================================== */
@@ -862,6 +919,8 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
   
 
   .mobile-hero-img-container, .mobile-hero-ambient-bg { display: none; } 
+
+  .mobile-hero-detail, .brand-wordmark { display: none; } 
 
   
 
