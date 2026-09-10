@@ -413,8 +413,6 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
   top: 0; right: 0; bottom: 0; left: 0; inset: 0;
 
-  will-change: transform;
-
 }
 
 
@@ -457,6 +455,47 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 .side-note span { display: block; color: var(--yellow); font-family: var(--display); font-size: 22px; text-transform: uppercase; }
 
 .side-note p { margin: 4px 0 0; color: var(--cream-75); font-size: 14px; }
+
+.hero-bottom { display: none; }
+
+.mobile-only-followup { display: block; }
+
+.hero-followup {
+  padding: 60px 16px 70px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-followup .hero-text-cta-block { max-width: 480px; }
+
+.hero-followup .hero-description {
+  color: var(--cream-75);
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0 0 26px;
+}
+
+/* Dezenter Hinweis, dass es weitergeht — ersetzt den Button als
+   "erstes Signal", ohne selbst wie ein Call-to-Action zu wirken. */
+.scroll-hint {
+  margin-top: 34px;
+  display: flex;
+  justify-content: center;
+}
+
+.scroll-hint span {
+  display: block;
+  width: 1px;
+  height: 34px;
+  background: linear-gradient(to bottom, rgba(244,237,217,.55), transparent);
+  animation: scroll-hint-move 1.8s ease-in-out infinite;
+}
+
+@keyframes scroll-hint-move {
+  0% { transform: scaleY(0.3); transform-origin: top; opacity: .4; }
+  50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  100% { transform: scaleY(0.3); transform-origin: bottom; opacity: .4; }
+}
 
 
 /* ==========================================================================
@@ -899,6 +938,8 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
 
   .hero-bottom { display: flex; flex-direction: column; gap: 40px; align-items: flex-start; }
+
+  .mobile-only-followup { display: none; }
 
   
 

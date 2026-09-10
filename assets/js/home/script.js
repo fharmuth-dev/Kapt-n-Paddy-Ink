@@ -176,10 +176,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }); 
 
     // HANDY HERO ENTRANCE 
+    // Bewusst denkbar einfach gehalten: nur noch Ein-/Ausblenden (opacity),
+    // keine Skalierung mehr auf dem großen Vollbild-Foto. Genau in diesem
+    // Moment (Seitenaufbau) laufen ohnehin schon Schriftarten, Preloader-
+    // Abbau und mehrere Reveal-Animationen gleichzeitig — auf schwächeren
+    // Prozessoren summierte sich das spürbar. opacity ist die mit Abstand
+    // günstigste animierbare Eigenschaft überhaupt.
     activeMedia.add("(max-width: 759px)", () => { 
       const tl = gsap.timeline(); 
-      tl.from(".mobile-hero-ambient-bg img", { scale: 1.15, duration: 1.8, ease: "power3.out" }) 
-      .to(".hero .word-reveal", { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.12 }, "-=0.8"); 
+      tl.from(".mobile-hero-ambient-bg img", { opacity: 0, duration: 0.6, ease: "none" }) 
+      .to(".hero .word-reveal", { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.12 }, "-=0.2"); 
     }); 
   } 
 
