@@ -12,6 +12,102 @@ document.addEventListener("DOMContentLoaded", () => {
   } 
 
   /* ==========================================================================
+     GEMEINSAME PROGRESSIVE-IMAGE-LOGIK (Ursache des Ruckelns beim Scrollen)
+     ---------------------------------------------------------------------
+     Vorher wurden ALLE hochauflösenden Bilder der Seite (~3,6 MB, 9 Stück,
+     darunter sogar reine Desktop-Bilder wie corner-02a.jpg/paddy-01a.jpg,
+     die auf dem Handy nie sichtbar sind) sofort beim Laden gleichzeitig
+     angefordert und dekodiert. Genau das hat auf dem Handy den Haupt-Thread
+     blockiert, während gleichzeitig gescrollt wurde — sichtbar als kurzes
+     "Einfrieren", gefolgt von einem ruckartigen Sprung, sobald die Arbeit
+     fertig war.
+     Jetzt wird jedes Bild einzeln per IntersectionObserver beobachtet und
+     lädt erst nach, kurz bevor es tatsächlich in den sichtbaren Bereich
+     scrollt. Bilder, die schon im ersten Moment sichtbar sind (z. B. das
+     Hero-Foto), lösen sofort aus — für sie ändert sich nichts. Bilder in
+     Containern mit display:none (z. B. Desktop-Bilder auf dem Handy) haben
+     keine Fläche und lösen nie aus, werden also gar nicht erst geladen.
+
+     ZUSÄTZLICHES SICHERHEITSNETZ: IntersectionObserver-Callbacks laufen
+     asynchron und können bei sehr schnellem/ruckartigem Scrollen (z. B.
+     einem kräftigen Fling-Gesture) im ungünstigsten Fall ein Bild
+     "überspringen". Damit nie ein Bild dauerhaft unscharf hängen bleibt,
+     prüft ein leichtgewichtiger, per requestAnimationFrame gebündelter
+     Scroll-Handler zusätzlich alle noch offenen Bilder direkt gegen die
+     aktuelle Bildschirmposition. Die Liste wird mit jedem geladenen Bild
+     kürzer, und sobald alle geladen sind, entfernt sich der Handler
+     automatisch wieder — keine dauerhaften Scroll-Kosten.
+     ========================================================================== */
+  function initProgressiveImages(onImageLoaded) {
+    const images = Array.from(document.querySelectorAll(".progressive-img"));
+    const pending = new Set(images);
+
+    const loadImage = (img) => {
+      if (!pending.has(img)) return;
+      const largeSrc = img.getAttribute("data-large");
+      pending.delete(img);
+      if (!largeSrc || img.dataset.largeRequested) return;
+      img.dataset.largeRequested = "1";
+      const largeImage = new Image();
+      largeImage.decoding = "async";
+      largeImage.src = largeSrc;
+      largeImage.onload = () => {
+        img.src = largeSrc;
+        img.classList.add("loaded");
+        if (onImageLoaded) onImageLoaded(img);
+      };
+    };
+
+    // (Hinweis: decoding="async" bewusst NUR auf dem unsichtbaren Preload-Objekt
+    // unten gesetzt, nicht hier auf dem sichtbaren <img> — dort würde es das
+    // Neuzeichnen des bereits fertig dekodierten Bildes unnötig verzögern.)
+
+    if (!("IntersectionObserver" in window)) {
+      // Sehr alte Browser ohne IntersectionObserver-Unterstützung: wie zuvor alles direkt laden
+      images.forEach(loadImage);
+      return;
+    }
+
+    const SAFETY_MARGIN = 1000; // px zusätzlicher Puffer für den Scroll-Fallback
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          loadImage(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: "1000px 0px 1000px 0px" });
+
+    images.forEach((img) => observer.observe(img));
+
+    // Sicherheitsnetz: läuft nur, solange noch Bilder offen sind
+    let ticking = false;
+    function checkPendingOnScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const viewportTop = -SAFETY_MARGIN;
+        const viewportBottom = window.innerHeight + SAFETY_MARGIN;
+        pending.forEach((img) => {
+          const rect = img.getBoundingClientRect();
+          if (rect.width === 0 && rect.height === 0) return; // display:none (o.ä.) — nie laden
+          if (rect.bottom >= viewportTop && rect.top <= viewportBottom) {
+            observer.unobserve(img);
+            loadImage(img);
+          }
+        });
+        if (pending.size === 0) {
+          window.removeEventListener("scroll", checkPendingOnScroll);
+        }
+        ticking = false;
+      });
+    }
+    window.addEventListener("scroll", checkPendingOnScroll, { passive: true });
+    checkPendingOnScroll(); // einmal direkt beim Start prüfen
+  }
+
+  /* ==========================================================================
      ROBUSTHEITS-FALLBACK: Sollte GSAP nicht laden (CDN-Ausfall, Adblocker,
      Firmen-Firewall etc.), darf die Seite trotzdem nutzbar sein: Preloader
      ausblenden, Bilder in voller Auflösung nachladen, Texte sichtbar machen.
@@ -32,17 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const curtainWiper = document.querySelector(".curtain-wiper");
       if (curtainWiper) curtainWiper.style.transform = "scaleX(0)";
     };
-    document.querySelectorAll(".progressive-img").forEach((img) => {
-      const largeSrc = img.getAttribute("data-large");
-      if (largeSrc) {
-        const largeImage = new Image();
-        largeImage.src = largeSrc;
-        largeImage.onload = () => {
-          img.src = largeSrc;
-          img.classList.add("loaded");
-        };
-      }
-    });
+    initProgressiveImages();
     window.addEventListener("load", () => setTimeout(reveal, 100));
     setTimeout(reveal, 2500);
     return; // Kein weiterer GSAP-Code wird ausgeführt
@@ -121,25 +207,15 @@ document.addEventListener("DOMContentLoaded", () => {
   let loadedCriticalCount = 0; 
   const totalCriticalRequired = criticalImagesToWatch.length; 
 
-  // Startet das hochauflösende Laden im Hintergrund 
-  document.querySelectorAll('.progressive-img').forEach((img) => { 
-    const largeSrc = img.getAttribute('data-large'); 
-    if (largeSrc) { 
-      const largeImage = new Image(); 
-      largeImage.src = largeSrc; 
-      largeImage.onload = () => { 
-        img.src = largeSrc; 
-        img.classList.add('loaded'); 
-         
-        // Prüfen, ob dieses geladene Bild für das aktuelle Gerät kritisch war 
-        if (criticalImagesToWatch.includes(img)) { 
-          loadedCriticalCount++; 
-          // Erst wenn alle für dieses Gerät wichtigen Bilder da sind, öffnet sich der Vorhang! 
-          if (loadedCriticalCount >= totalCriticalRequired) { 
-            executePageReveal();  
-          } 
-        } 
-      }; 
+  // Startet das hochauflösende Laden — jetzt gestaffelt statt alles auf einmal 
+  initProgressiveImages((img) => { 
+    // Prüfen, ob dieses geladene Bild für das aktuelle Gerät kritisch war 
+    if (criticalImagesToWatch.includes(img)) { 
+      loadedCriticalCount++; 
+      // Erst wenn alle für dieses Gerät wichtigen Bilder da sind, öffnet sich der Vorhang! 
+      if (loadedCriticalCount >= totalCriticalRequired) { 
+        executePageReveal();  
+      } 
     } 
   }); 
 
