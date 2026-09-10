@@ -229,24 +229,7 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
 .page-noise {
 
-  position: fixed;
-
-  top: 0; right: 0; bottom: 0; left: 0; inset: 0;
-
-  z-index: 900;
-
-  pointer-events: none;
-
-  /* mix-blend-mode:overlay entfernt — bei einem VOLLBILD-fixierten Element
-     zwingt das den Prozessor, bei JEDEM Scroll-Frame die komplette Fläche
-     Pixel für Pixel mit dem Inhalt darunter neu zu verrechnen. Auf
-     Mittelklasse-Handys (z.B. Motorola Edge 20) war das ein Haupt-Auslöser
-     für Scroll-Ruckeln; auf Flaggschiff-Chips (Galaxy S24) fiel es nicht auf,
-     weil die GPU es einfach wegsteckt. Optisch macht es bei 4% Deckkraft
-     kaum einen Unterschied — das Korn bleibt sichtbar. */
-  opacity: .035;
-
-  background: repeating-linear-gradient(0deg, #fff 0, #fff 1px, transparent 1px, transparent 4px);
+  display: none;
 
 }
 
@@ -310,7 +293,7 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
 .brand-logo { display: block; height: 46px; width: auto; }
 
-@media (min-width: 900px) { .brand-logo { height: 62px; } }
+@media (min-width: 900px) { .brand-logo { height: 92px; } }
 
 
 .menu-toggle {
@@ -940,6 +923,8 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
   .hero-bottom { display: flex; flex-direction: column; gap: 40px; align-items: flex-start; }
 
   .mobile-only-followup { display: none; }
+
+  .scroll-hint { display: none; }
 
   
 
