@@ -424,7 +424,12 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
 .hero-grid { width: 100%; display: flex; flex-direction: column; justify-content: flex-end; min-height: calc(100svh - var(--header) - 40px); gap: 20px; z-index: 2; position: relative; }
 
-.tiny-label { margin: 0 0 12px; color: var(--yellow); font-size: 11px; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
+/* display:block ergänzt: Auf mehreren Seiten (about, atelier, faq, works) wird
+   .tiny-label als <span> im Hero verwendet, nicht als <p>. Ohne display:block
+   ist ein <span> inline, wodurch margin-bottom wirkungslos bleibt und die
+   große Überschrift darunter nur ~1px Abstand hat statt der beabsichtigten
+   12px — dasselbe Überlappungsrisiko wie beim .section-intro-Fix oben. */
+.tiny-label { display: block; margin: 0 0 12px; color: var(--yellow); font-size: 11px; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
 
 .hero .tiny-label, .hero .hero-description { text-shadow: 0 1px 12px rgba(0,0,0,.5); }
 
@@ -599,6 +604,19 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
 }
 
+
+/* Kleine Label-Zeile vor einer großen Bebas-Neue-Überschrift (z. B. "Die Kunst" 
+   vor "Jede Haut. Eine Geschichte."). Vorher hatte dieser Span weder display:block
+   noch einen eigenen margin-bottom — der Abstand zur Überschrift darunter ergab
+   sich rein zufällig aus der Zeilenhöhe und lag nur bei ~1px. Das reichte gerade
+   so mit der ursprünglichen Google-Fonts-Auslieferung, kippte aber bei anderen
+   Schrift-Metriken (z. B. anderes Betriebssystem, anderer Browser) leicht in
+   sichtbare Überlappung. Jetzt explizit und robust: */
+.section-intro > span,
+.paddy-copy > span {
+  display: block;
+  margin: 0 0 14px;
+}
 
 .statement-right h2, .section-intro h2, .paddy-copy h2, .question-section h2, .final-cta h2 { 
 
@@ -863,11 +881,15 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
 .route-item span { 
 
+  display: block; 
+
   color: var(--yellow); 
 
   font-family: var(--display); 
 
   font-size: 28px; 
+
+  margin-bottom: 6px; 
 
 }
 
