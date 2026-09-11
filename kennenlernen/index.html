@@ -5,11 +5,9 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
  <title>Vibe Prüfen — Kapt'n Paddy Ink</title> 
 
- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+ <script src="../assets/vendor/gsap/gsap.min.js"></script>
 
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/fonts/fonts.css">
 
  <link rel="stylesheet" href="../assets/css/kennenlernen/style.css">
 </head> 
@@ -42,7 +40,7 @@
    <div class="eb-content">
      <div class="vibe-container">
        <form action="https://api.web3forms.com/submit" method="POST" id="main-vibe-form">
-         <input type="hidden" name="access_key" value="DEIN-WEB3FORMS-KEY-HIER-EINTRAGEN">
+         <input type="hidden" name="access_key" value="6bb8c61f-64ab-41e5-b2c0-4819c14084db">
          <input type="checkbox" name="botcheck" style="display: none;">
 
          <div class="step-card active" data-step="1">
@@ -94,7 +92,19 @@
            </div>
            <input type="hidden" name="contact_method" id="hidden-channel-field">
            <input type="text" name="contact_details" id="field-details" class="input-field" placeholder="WÄHLE ZUERST EINEN KANAL..." required autocomplete="off">
-           <button type="submit" class="action-btn" style="background: var(--accent-red); color: white;">VIBE-CHECK ABSENDEN →</button>
+           <p class="form-error-msg" id="form-error-msg" style="display:none;"></p>
+           <button type="submit" class="action-btn" id="form-submit-btn" style="background: var(--accent-red); color: white;">
+             <span class="btn-label">VIBE-CHECK ABSENDEN →</span>
+           </button>
+         </div>
+
+         <div class="step-card" data-step="5">
+           <div class="step-header-nav">
+             <span class="num-badge">✓ // ANGEKOMMEN</span>
+           </div>
+           <h2 class="step-title">Vibe-Check<br>ist raus.</h2>
+           <p class="step-sub">Danke dir! Deine Anfrage ist gerade direkt bei Paddy gelandet — keine Warteschleife, kein Bot. Meld dich in 1–2 Tagen über den Kanal, den du gewählt hast.</p>
+           <a href="../index.html" class="action-btn" style="display:inline-block; text-align:center; text-decoration:none;">ZURÜCK ZUR STARTSEITE</a>
          </div>
        </form>
      </div>

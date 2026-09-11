@@ -1,0 +1,67 @@
+/* ==========================================================================
+   SELBST GEHOSTETE SCHRIFTEN (Bebas Neue + Inter)
+   ---------------------------------------------------------------------
+   Vorher wurden diese Schriften direkt von fonts.googleapis.com /
+   fonts.gstatic.com geladen. Dabei überträgt der Browser jedes Besuchers
+   automatisch dessen IP-Adresse an Google-Server — ohne vorherige
+   Einwilligung. Das LG München I (Urteil v. 20.01.2022, Az. 3 O 17493/20)
+   hat genau das als DSGVO-Verstoß gewertet. Durch lokales Hosten entfällt
+   diese externe Verbindung vollständig: Die Schriften werden vom eigenen
+   Server ausgeliefert, es fließen keine Nutzerdaten mehr an Dritte.
+   Lizenz: SIL Open Font License 1.1 (freie Nutzung, auch selbst gehostet,
+   siehe LICENSE-Dateien der jeweiligen Font-Projekte).
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./files/bebas-neue-latin-ext-400-normal.woff2') format('woff2'),
+       url('./files/bebas-neue-latin-ext-400-normal.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./files/inter-latin-ext-400-normal.woff2') format('woff2'),
+       url('./files/inter-latin-ext-400-normal.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./files/inter-latin-ext-500-normal.woff2') format('woff2'),
+       url('./files/inter-latin-ext-500-normal.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./files/inter-latin-ext-600-normal.woff2') format('woff2'),
+       url('./files/inter-latin-ext-600-normal.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./files/inter-latin-ext-700-normal.woff2') format('woff2'),
+       url('./files/inter-latin-ext-700-normal.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('./files/inter-latin-ext-900-normal.woff2') format('woff2'),
+       url('./files/inter-latin-ext-900-normal.woff') format('woff');
+}

@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const isDesktop = window.matchMedia("(min-width: 760px)").matches;
+    // Preloader zügig ausblenden (Unterseite ohne kritische Hero-Bilder-Kette)
     const preloader = document.getElementById("smart-preloader");
-
     if (preloader) {
         setTimeout(() => {
-            if (isDesktop && typeof gsap !== "undefined") {
+            if (typeof gsap !== "undefined") {
                 gsap.to(preloader, {
                     yPercent: -100,
                     duration: 1,
@@ -15,18 +14,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 });
             } else {
-                preloader.style.transition = "opacity .5s ease";
-                preloader.style.opacity = "0";
-                setTimeout(() => {
-                    preloader.style.display = "none";
-                    document.body.classList.remove("preloader-active");
-                }, 500);
+                preloader.style.display = "none";
+                document.body.classList.remove("preloader-active");
             }
         }, 350);
     }
 
-    // Scroll-Parallax für die Kompass-/Steuerrad-Grafiken: nur Desktop.
-    if (isDesktop && typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined" && window.matchMedia("(pointer: fine)").matches) {
+    // Leichte Scroll-Parallax für die Kompass-/Steuerrad-Grafiken (nur Desktop / feine Pointer)
+    if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined" && window.matchMedia("(pointer: fine)").matches) {
         gsap.to(".icon-wheel-gallery", {
             rotation: 60,
             ease: "none",

@@ -44,9 +44,6 @@ const koerperstellen = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-
-  // GSAP läuft in diesem Formular ab sofort ausschließlich am Desktop.
-  const isDesktop = window.matchMedia("(min-width: 760px)").matches;
   const canvas = document.getElementById("eb-canvas");
   const container = document.getElementById("eb-container");
 
@@ -191,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Robustheits-Fallback: Falls GSAP nicht verfügbar ist (CDN-Ausfall, Adblocker),
       // wechselt die Karte trotzdem sofort, nur ohne Animation.
-      if (!isDesktop || typeof gsap === "undefined") {
+      if (typeof gsap === "undefined") {
         finishSwap();
         return;
       }
@@ -237,7 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
         currentStep--;
       };
 
-      if (!isDesktop || typeof gsap === "undefined") {
+      if (typeof gsap === "undefined") {
         finishSwap();
         return;
       }
@@ -331,11 +328,48 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   if (formElement) {
+    const submitBtn = document.getElementById("form-submit-btn");
+    const errorMsg = document.getElementById("form-error-msg");
+
     formElement.addEventListener("submit", (e) => {
+      e.preventDefault();
+
       if (!hiddenChannel || hiddenChannel.value.trim() === "") {
-        e.preventDefault();
         alert("Bitte wähle zuerst einen Kontaktkanal aus (Instagram, WhatsApp oder Telefon)!");
+        return;
       }
+
+      if (errorMsg) errorMsg.style.display = "none";
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.querySelector(".btn-label").textContent = "WIRD GESENDET...";
+      }
+
+      fetch(formElement.action, {
+        method: "POST",
+        body: new FormData(formElement),
+        headers: { Accept: "application/json" }
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            goToNextStep(); // wechselt von Schritt 4 (aktuell) zur Erfolgs-Karte (Schritt 5)
+          } else {
+            throw new Error(data.message || "Unbekannter Fehler beim Versenden.");
+          }
+        })
+        .catch(() => {
+          if (errorMsg) {
+            errorMsg.textContent = "Puh, das hat gerade nicht geklappt. Bitte versuch es nochmal oder schreib mir direkt an kaptnpaddy@gmx.de.";
+            errorMsg.style.display = "block";
+          }
+        })
+        .finally(() => {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.querySelector(".btn-label").textContent = "VIBE-CHECK ABSENDEN →";
+          }
+        });
     });
   }
 

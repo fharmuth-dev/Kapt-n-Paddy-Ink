@@ -46,6 +46,8 @@ img.brand-logo,
    abgeschwächt, nur auf dieser Seite. */
 header.site-header,
 .site-header {
+    -webkit-backdrop-filter: blur(2px) !important;
+    backdrop-filter: blur(2px) !important;
     background: linear-gradient(to bottom, rgba(8,7,6,.55) 0%, rgba(8,7,6,0) 100%) !important;
 }
 
@@ -98,8 +100,7 @@ header.site-header,
    ========================================================================== */
 .paddy-hero {
     position: relative;
-    min-height: 92vh; /* Fallback */
-    min-height: 92svh;
+    min-height: 92vh;
     display: flex;
     align-items: flex-end;
     padding: calc(190px + 20px) 16px 60px;
@@ -350,6 +351,8 @@ header.site-header,
     left: 0;
     width: 100vw;
     background: rgba(20, 18, 16, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-top: 1px solid rgba(244, 237, 217, 0.1);
     display: flex;
     justify-content: space-around;

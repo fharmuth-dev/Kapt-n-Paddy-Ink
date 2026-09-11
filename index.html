@@ -8,15 +8,6 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
 
-  <script>
-    /* Friert die Bildschirmhöhe EINMALIG beim allerersten Laden ein
-       (als CSS-Variable --locked-vh). Läuft bewusst synchron, ganz am
-       Anfang, unabhängig von GSAP/Preloader/allem anderen — damit sich
-       .hero (der große Handy-Aufmacher) NIE mehr durch ein- oder
-       ausblendende Browser-Symbolleisten in der Höhe verändert, während
-       gescrollt wird. */
-    document.documentElement.style.setProperty('--locked-vh', window.innerHeight + 'px');
-  </script>
 
   <title>Kapt'n Paddy Ink — Mut ist der Anfang von Freiheit</title> 
 
@@ -25,18 +16,12 @@
   <meta name="description" content="Kapt'n Paddy Ink ist ein persönliches Tattoo-Privatatelier in Ulm. Ein geschützter Raum für Kunst, Geschichten und Tattoos mit Charakter." /> 
 
 
-  <link rel="preconnect" href="https://fonts.googleapis.com"> 
-
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
 
 
+  <script src="assets/vendor/gsap/gsap.min.js"></script> 
 
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet"> 
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script> 
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script> 
+  <script src="assets/vendor/gsap/ScrollTrigger.min.js"></script> 
 
 
   <link rel="stylesheet" href="assets/css/home/style.css"> 
@@ -82,6 +67,7 @@
 
     <a href="index.html" class="brand">
       <img src="images/logo.png" alt="Kapt'n Paddy Ink Logo" class="brand-logo">
+      <span class="brand-wordmark">Kapt'n Paddy Ink</span>
     </a> 
 
     <nav class="nav"> 
@@ -112,7 +98,7 @@
 
       <div class="mobile-hero-ambient-bg progressive-img-container"> 
 
-        <img src="images/paddy-01-mobile-tiny.jpg" data-large="images/paddy-01-mobile.jpg" alt="Kapt'n Paddy bei der Arbeit" class="progressive-img"> 
+        <img src="images/handyhero-01-tiny.jpg" data-large="images/handyhero-01a.jpg" alt="Kapt'n Paddy im Profil, Blackwork-Sleeve am Arm" class="progressive-img animate-ambient"> 
 
       </div> 
 
@@ -144,8 +130,6 @@
 
           </h1> 
 
-          <div class="scroll-hint" aria-hidden="true"><span></span></div>
-
         </div> 
 
 
@@ -155,6 +139,13 @@
 
 
             <img src="images/corner-02b.jpg" data-large="images/corner-02a.jpg" alt="Fokus Handwerk" class="progressive-img"> 
+
+          </div> 
+
+
+          <div class="mobile-hero-detail progressive-img-container"> 
+
+            <img src="images/handy-01-tiny.jpg" data-large="images/handy-01a.jpg" alt="Detailaufnahme: feines Rosen-Tattoo entsteht im Atelier" class="progressive-img"> 
 
           </div> 
 
@@ -190,38 +181,6 @@
         <span>Erst ankommen</span> 
 
         <p>Kaffee trinken, Vibe spüren, Raum einnehmen. Dann Kunst erschaffen.</p> 
-
-      </div> 
-
-    </section> 
-
-
-    <!-- MOBIL-EXKLUSIV, bewusst AUSSERHALB des ersten Bildschirms: Wer die
-         Seite öffnet, soll zuerst nur Marke + Bild + Überschrift sehen —
-         kein Button, der sofort ins Auge springt, bevor klar ist, worum es
-         hier geht. Erscheint erst, wenn man ein kleines Stück scrollt.
-         Auf Desktop bleibt stattdessen der Originalblock oben (.hero-bottom)
-         aktiv — hier per CSS ausgeblendet, um an der bestehenden,
-         abgenommenen Desktop-Positionierung nichts zu verändern. -->
-    <section class="hero-followup section-dark mobile-only-followup"> 
-
-      <div class="hero-text-cta-block"> 
-
-        <p class="hero-description"> 
-
-          Tattoos mit Charakter. Für Menschen mit Geschichte.  
-
-          Ohne Show. Ohne Maske. Im sicheren Hafen des Ateliers.  
-
-        </p> 
-
-        <a href="kennenlernen/index.html" class="button button-primary"> 
-
-          <span>Vibe prüfen</span> 
-
-          <b>→</b> 
-
-        </a> 
 
       </div> 
 
@@ -458,6 +417,29 @@
         <b>→</b> 
 
       </a> 
+
+
+      <div class="instagram-callout"> 
+
+        <p class="instagram-callout-label">Um nichts zu verpassen, folge auch auf Instagram</p> 
+
+        <a href="https://www.instagram.com/kaptn_paddy_ink/" target="_blank" rel="noopener noreferrer" class="instagram-callout-link"> 
+
+          <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"> 
+
+            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/> 
+
+            <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/> 
+
+            <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/> 
+
+          </svg> 
+
+          <span>@kaptn_paddy_ink</span> 
+
+        </a> 
+
+      </div> 
 
     </section> 
 
