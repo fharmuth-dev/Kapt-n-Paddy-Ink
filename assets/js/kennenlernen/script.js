@@ -345,9 +345,15 @@ document.addEventListener("DOMContentLoaded", () => {
         submitBtn.querySelector(".btn-label").textContent = "WIRD GESENDET...";
       }
 
+      const formData = new FormData(formElement);
+      // Betreff personalisieren, damit die Anfrage im Postfach sofort erkennbar ist,
+      // ohne die E-Mail erst öffnen zu müssen (z. B. "Neue Vibe-Check Anfrage von Ace")
+      const visitorName = (formData.get("Name") || "").toString().trim();
+      formData.set("subject", visitorName ? `Neue Vibe-Check Anfrage von ${visitorName}` : "Neue Vibe-Check Anfrage über die Webseite");
+
       fetch(formElement.action, {
         method: "POST",
-        body: new FormData(formElement),
+        body: formData,
         headers: { Accept: "application/json" }
       })
         .then((res) => res.json())

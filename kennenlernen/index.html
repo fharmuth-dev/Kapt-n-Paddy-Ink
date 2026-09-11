@@ -41,6 +41,8 @@
      <div class="vibe-container">
        <form action="https://api.web3forms.com/submit" method="POST" id="main-vibe-form">
          <input type="hidden" name="access_key" value="6bb8c61f-64ab-41e5-b2c0-4819c14084db">
+         <input type="hidden" name="from_name" value="Kapt'n Paddy Ink – Webseite">
+         <input type="hidden" name="subject" value="Neue Vibe-Check Anfrage über die Webseite">
          <input type="checkbox" name="botcheck" style="display: none;">
 
          <div class="step-card active" data-step="1">
@@ -49,7 +51,7 @@
            </div>
            <h2 class="step-title">Bereit für den<br>nächsten Schritt?</h2>
            <p class="step-sub">Lass uns den Vibe checken. Wie lautet dein Name?</p>
-           <input type="text" name="visitor_name" id="field-name" class="input-field active-shimmer-line" placeholder="DEIN NAME..." required autocomplete="off">
+           <input type="text" name="Name" id="field-name" class="input-field active-shimmer-line" placeholder="DEIN NAME..." required autocomplete="off">
            <button type="button" class="action-btn next-trigger">WEITERGEHEN →</button>
          </div>
 
@@ -61,7 +63,7 @@
            <h2 class="step-title">Wo soll die<br>Nadel hin?</h2>
            <p class="step-sub">Welche Körperstelle hast du im Kopf?</p>
            <div class="search-wrapper">
-             <input type="text" name="body_location" id="field-loc" class="input-field" placeholder="KÖRPERSTELLE..." autocomplete="off">
+             <input type="text" name="Körperstelle" id="field-loc" class="input-field" placeholder="KÖRPERSTELLE..." autocomplete="off">
              <div class="search-results" id="search-results-box"></div>
            </div>
            <button type="button" class="action-btn next-trigger">STELLE SPEICHERN →</button>
@@ -74,7 +76,7 @@
            </div>
            <h2 class="step-title">Kommen wir zur Sache...</h2>
            <p class="step-sub">Erzähl mir von deiner Idee.</p>
-           <textarea name="tattoo_story" id="field-story" class="input-field" rows="5" placeholder="Was ist deine Story, was treibt dich an?..."></textarea>
+           <textarea name="Tattoo-Idee" id="field-story" class="input-field" rows="5" placeholder="Was ist deine Story, was treibt dich an?..."></textarea>
            <button type="button" class="action-btn next-trigger">Story Complete? →</button>
          </div>
 
@@ -90,8 +92,8 @@
              <button type="button" class="option-btn" data-channel="WhatsApp">WhatsApp</button>
              <button type="button" class="option-btn" data-channel="Telefon">Telefonruf</button>
            </div>
-           <input type="hidden" name="contact_method" id="hidden-channel-field">
-           <input type="text" name="contact_details" id="field-details" class="input-field" placeholder="WÄHLE ZUERST EINEN KANAL..." required autocomplete="off">
+           <input type="hidden" name="Bevorzugter Kontaktweg" id="hidden-channel-field">
+           <input type="text" name="Kontaktdaten" id="field-details" class="input-field" placeholder="WÄHLE ZUERST EINEN KANAL..." required autocomplete="off">
            <p class="form-error-msg" id="form-error-msg" style="display:none;"></p>
            <button type="submit" class="action-btn" id="form-submit-btn" style="background: var(--accent-red); color: white;">
              <span class="btn-label">VIBE-CHECK ABSENDEN →</span>
