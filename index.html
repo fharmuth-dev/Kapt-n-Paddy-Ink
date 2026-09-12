@@ -528,7 +528,14 @@
       .footer {
         padding-bottom: 90px !important;
       }
-      
+
+      /* Ohne diesen Abstand reicht der Footer bis ganz nach unten und liegt
+         (wegen seines höheren z-index) über der fixierten Navi-Leiste, wodurch
+         deren Links dort nicht anklickbar sind. */
+      body {
+        padding-bottom: 70px;
+      }
+
       .mobile-nav-bar {
         display: flex;
         justify-content: space-around;
