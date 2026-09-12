@@ -293,24 +293,14 @@ img.brand-logo,
     pointer-events: none !important; /* Lässt Klicks komplett durch das Rauschen durchfallen */
 }
 
-/* Zwingt den Hauptinhalt in eine saubere Klicgebene am PC */
-.faq-main-content {
-    position: relative !important;
-    z-index: 10 !important;
-    pointer-events: auto !important;
-}
-
-/* Garantiert absolute Klickbarkeit des Footers am PC */
+/* Garantiert Klickbarkeit des Footers, ohne ihn in main einzusperren */
 .footer {
-    position: relative !important;
-    z-index: 999999 !important;
-    clear: both !important;
-    display: block !important;
-    pointer-events: auto !important;
+    position: relative;
+    z-index: 10000;
 }
 
-.footer a {
-    position: relative !important;
-    z-index: 9999999 !important;
-    pointer-events: auto !important;
+@media (max-width: 899px) {
+    /* Genug Abstand zur fixierten mobilen Tab-Leiste, damit ihre Links nie
+       darüberliegen. */
+    .footer { padding-bottom: 90px; }
 }

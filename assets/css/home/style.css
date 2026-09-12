@@ -924,6 +924,10 @@ button { font: inherit; background: none; border: none; cursor: pointer; }
 
   color: var(--cream-55); 
 
+  position: relative; 
+
+  z-index: 10000; 
+
 }
 
 .footer nav { 

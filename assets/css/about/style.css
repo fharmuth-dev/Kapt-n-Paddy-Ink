@@ -395,22 +395,13 @@ header.site-header,
     pointer-events: none !important;
 }
 
-.about-main-content {
-    position: relative !important;
-    z-index: 10 !important;
-    pointer-events: auto !important;
-}
-
 .footer {
-    position: relative !important;
-    z-index: 999999 !important;
-    clear: both !important;
-    display: block !important;
-    pointer-events: auto !important;
+    position: relative;
+    z-index: 10000;
 }
 
-.footer a {
-    position: relative !important;
-    z-index: 9999999 !important;
-    pointer-events: auto !important;
+@media (max-width: 899px) {
+    /* Genug Abstand zur fixierten mobilen Tab-Leiste, damit ihre Links nie
+       darüberliegen. */
+    .footer { padding-bottom: 90px; }
 }

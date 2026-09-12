@@ -236,15 +236,10 @@
 
   <!-- Mobile Bottom Navigation Bar -->
   <style>
-    .footer {
-      position: relative !important;
-      z-index: 999999 !important;
-      pointer-events: auto !important;
-    }
     .mobile-nav-bar { display: none; }
-    
+
     @media (max-width: 768px) {
-      .footer { padding-bottom: 95px !important; }
+      .footer { padding-bottom: 95px; }
       .mobile-nav-bar {
         display: flex;
         justify-content: space-around;
@@ -255,7 +250,7 @@
         width: 100%;
         background: #0b0b0b;
         padding: 16px 10px;
-        z-index: 9999999 !important;
+        z-index: 9999;
         border-top: 1px solid rgba(255, 255, 255, 0.05);
         box-sizing: border-box;
       }
